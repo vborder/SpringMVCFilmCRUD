@@ -12,8 +12,16 @@ import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 public class FilmDAOImpl implements FilmDAO {
+	
+	static {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 
-	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
+	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=MST";
 
 	private final String user = "student";
 	private final String pass = "student";
