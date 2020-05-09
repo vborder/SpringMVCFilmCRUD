@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Film Details</h2>
-	${film.id } ${film.title } ${film.description } ${film.release_year }
+	${Film.id } ${Film.title } ${film.description } ${film.release_year }
 	${film.language_id } ${film.rental_duration } ${film.rental_rate }
 	${film.length } ${film.replacement_cost } ${film.rating }
 	${film.special_features }
@@ -24,7 +24,7 @@
 	<h5>Enter any fields you would like to update</h5>
 	<FORM action="EditFilm.do" method="post">
 		<P>
-			<LABEL for="id">Film ID ${film.id } </LABEL> <BR> <LABEL
+			<LABEL for="id">Film ID ${Film.id } </LABEL> <BR> <LABEL
 				for="title">Title ${film.title } </LABEL> <INPUT type="text"
 				id="title"><BR> <LABEL for="description">Description
 				${film.description } </LABEL> <INPUT type="text" id="description"><BR>
