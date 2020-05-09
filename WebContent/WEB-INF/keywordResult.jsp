@@ -10,6 +10,8 @@
 <title>Keyword Search Result</title>
 </head>
 <body style="background-color:#b3e0ff">
+ <a href="http://localhost:8080/MVCFilmSite/" > Click here to go back home </a >
+ <br><br>
 	 <h2>  <span class="badge badge-success">Film Details</span></h2>
 
  <c:forEach var="film" items="${filmList }">
