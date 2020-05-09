@@ -30,7 +30,7 @@ public class FilmController {
 	}
 	
 	//Results for Search by ID
-	@RequestMapping(path="findByID.do", params="filmID", method= RequestMethod.GET)
+	@RequestMapping(path="findByID.do", params="input", method= RequestMethod.GET)
 	public ModelAndView getFilmByID(String input) {
 		ModelAndView mav= new ModelAndView();
 		try { int filmID = Integer.parseInt(input); 

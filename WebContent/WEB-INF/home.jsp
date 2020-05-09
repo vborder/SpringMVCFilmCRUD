@@ -13,7 +13,7 @@
 
 	  <h2>  <span class="badge badge-success">Find Film By ID</span></h2>
 	<form action="findByID.do" method="GET">
-		<input type="text" name="filmID" size="20" placeholder="Enter ID" /> <input type="submit"
+		<input type="text" name="input" size="20" placeholder="Enter ID" /> <input type="submit"
 			value="Search" />
 	</form>
 	<br><br>
