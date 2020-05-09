@@ -27,7 +27,7 @@ public class FilmDAOImpl implements FilmDAO {
 
 	@Override
 	public Film findFilmByID(int filmID) {
-	//	Film film = null;
+		Film film = null;
 
 		String user = "student";
 		String pass = "student";
@@ -51,6 +51,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
 				film.setLanguage(rs.getString("name"));
+				
 			}
 			conn.close();
 		} catch (SQLException e) {

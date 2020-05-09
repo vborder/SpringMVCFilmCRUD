@@ -36,7 +36,6 @@ public class FilmController {
 		else {
 			film= dao.findCreatedFilmsByID(filmID);
 		}
-		
 		mav.addObject("film", film);
 		mav.setViewName("WEB-INF/result.jsp");
 		
