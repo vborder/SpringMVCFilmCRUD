@@ -56,10 +56,15 @@ public class FilmDAOImpl implements FilmDAO {
 				film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
-				film.setReleaseYear(rs.getInt("release_year"));
-				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
-				film.setLanguage(rs.getString("name"));
+				film.setReleaseYear(rs.getInt("release_year"));
+				film.setLanguageId(rs.getInt("id"));
+				film.setRentalDuration(rs.getInt("language_id"));
+				film.setRentalRate(rs.getInt("rental_rate"));
+				film.setLength(rs.getInt("length"));
+				film.setReplacementCost(rs.getInt("replacement_cost"));
+				film.setRating(rs.getString("rating"));
+				film.setSpecialFeatures(rs.getString("special_features"));
 				
 			}
 			conn.close();
@@ -254,7 +259,7 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setString(2, film.getTitle());
 			st.setString(3, film.getDescription());
 			st.setInt(4, film.getReleaseYear());
-			st.setInt(5, film.getLanguageId());
+			st.setInt(5, 1);
 			st.setInt(6, film.getRentalDuration());
 			st.setDouble(7, film.getRentalRate());
 			st.setInt(8, film.getLength());
