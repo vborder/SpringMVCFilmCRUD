@@ -13,6 +13,12 @@
 		<input type="text" name="Film" size="10" /> <input type="submit"
 			value="Search" />
 	</form>
+	
+	<h3>Find film by keyword</h3>
+	<form action="filmKeyword.do" method="GET">
+		<input type="text" name="keyword" size="10" /> <input type="submit"
+			value="Search" />
+	</form>
 
 	<h3>Input new film</h3>
 	<FORM action="addFilm.do" method="post">
