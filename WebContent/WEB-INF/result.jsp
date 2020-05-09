@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Film Details</h2>
-	${Film.id } ${Film.title } ${film.description } ${film.release_year }
+	${Film.id Film.title } ${film.description } ${film.release_year }
 	${film.language_id } ${film.rental_duration } ${film.rental_rate }
 	${film.length } ${film.replacement_cost } ${film.rating }
 	${film.special_features }

@@ -71,6 +71,7 @@ public class FilmController {
 		return "redirect:filmAdded.do";
 	}
 	
+	//Film added
 	@RequestMapping(path="filmAdded.do", method= RequestMethod.GET)
 	public ModelAndView filmAdded(@ModelAttribute("newFilm") Film film) {
 		ModelAndView mav= new ModelAndView();
