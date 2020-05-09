@@ -66,6 +66,7 @@ public class FilmDAOImpl implements FilmDAO {
 			}
 			conn.close();
 		} catch (SQLException e) {
+			System.out.println("test");
 			e.printStackTrace();
 		}
 

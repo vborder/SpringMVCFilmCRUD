@@ -31,8 +31,9 @@ public class FilmController {
 	
 	//Results for Search by ID
 	@RequestMapping(path="findByID.do", params="filmID", method= RequestMethod.GET)
-	public ModelAndView getFilmByID(int filmID) {
+	public ModelAndView getFilmByID(String input) {
 		ModelAndView mav= new ModelAndView();
+		try { int filmID = Integer.parseInt(input); 
 		Film film=null;
 		
 		if(filmID <= 1000) {
@@ -44,7 +45,10 @@ public class FilmController {
 		mav.addObject("film", film);
 		mav.setViewName("WEB-INF/result.jsp");
 		
-		
+		}
+		catch (Exception e) {
+			mav.setViewName("WEB-INF/resultNotFound.jsp");
+		}
 		return mav;
 	}
 	
@@ -56,11 +60,16 @@ public class FilmController {
 		
 		films.addAll(dao.findFilmsByKeyword(keyword));
 		//films.addAll(dao.findCreatedFilmsByKeyword(keyword));
-		
+		if (films.size() > 0) {
 		mav.addObject("filmList", films);
 		mav.setViewName("WEB-INF/keywordResult.jsp");
-		
+		}
+		else {
+			mav.setViewName("WEB-INF/resultNotFound.jsp");
+			
+		}
 		return mav;
+		
 	}
 	
 	//Redirect and FlashAttributes for Adding a Film
