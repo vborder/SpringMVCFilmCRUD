@@ -29,9 +29,12 @@ public class FilmDAOImpl implements FilmDAO {
 	public Film findFilmByID(int filmID) {
 		Film film = null;
 
+		String user = "student";
+		String pass = "student";
+		String sql = "SELECT film.*, name FROM film JOIN language ON film.language_id = language.id WHERE film.id = ? ";
+
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = fullDataQuery + "WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setInt(1, filmID);
 			ResultSet rs = st.executeQuery();
@@ -39,7 +42,7 @@ public class FilmDAOImpl implements FilmDAO {
 //			if (rs.next()) {
 //				film = mapResultSetToFilm(rs);
 //			}
-			
+
 			if (rs.next()) {
 				film = new Film();
 				film.setId(rs.getInt("id"));
@@ -53,6 +56,7 @@ public class FilmDAOImpl implements FilmDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 		return film;
 	}
 
