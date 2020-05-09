@@ -1,5 +1,6 @@
 package com.skilldistillery.film.controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class FilmController {
 	
 	//Results for Search by Keyword
 	@RequestMapping(path="findByKeyword.do", params="keyword", method= RequestMethod.GET)
-	public ModelAndView getFilmsByKeyword(String keyword) {
+	public ModelAndView getFilmsByKeyword(String keyword) throws SQLException {
 		ModelAndView mav= new ModelAndView();
 		List<Film> films= new ArrayList<>();
 		
