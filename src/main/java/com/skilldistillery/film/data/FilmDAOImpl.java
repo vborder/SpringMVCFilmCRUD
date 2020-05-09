@@ -13,7 +13,7 @@ import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 public class FilmDAOImpl implements FilmDAO {
-	
+
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -21,9 +21,6 @@ public class FilmDAOImpl implements FilmDAO {
 			e.printStackTrace();
 		}
 	}
-
-
-	
 
 	private String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=MST";
 
@@ -65,7 +62,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setReplacementCost(rs.getInt("replacement_cost"));
 				film.setRating(rs.getString("rating"));
 				film.setSpecialFeatures(rs.getString("special_features"));
-				
+
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -267,7 +264,7 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setString(10, film.getRating());
 			st.setString(11, film.getSpecialFeatures());
 			int updateCount = st.executeUpdate();
-			
+
 			if (updateCount == 1) {
 				ResultSet keys = st.getGeneratedKeys();
 				if (keys.next()) {
@@ -277,39 +274,103 @@ public class FilmDAOImpl implements FilmDAO {
 							+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
 							+ "VALUES (?, ?)";
 					st = conn.prepareStatement(sql);
-//					for (Film film : iterable) {
-//						
-//					}
 
 				} else {
 					film = null;
 				}
 				conn.commit();
 			}
-			} catch (SQLException sqle) {
-				sqle.printStackTrace();
-				if (conn != null) {
-					try { conn.rollback(); }
-					catch (SQLException sqle2) {
-						System.err.println("Error trying to rollback");
-					}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
 				}
-				throw new RuntimeException("Error inserting film " + film);
 			}
-			
-			return film;
+			throw new RuntimeException("Error inserting film " + film);
+		}
+
+		return film;
 	}
 
 	@Override
-	public void updateFilm(Film film) {
-		// TODO Auto-generated method stub
+	public boolean updateFilm(Film film) throws SQLException {
+		Connection conn = DriverManager.getConnection(url, user, pass);
+		try {
+			conn.setAutoCommit(false);
+			String sql = "UPDATE film SET id=?, title=?, description=?, release_year=?, language_id=?,"
+					+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=?"
+					+ "WHERE id=?";
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, film.getId());
+			st.setString(2, film.getTitle());
+			st.setString(3, film.getDescription());
+			st.setInt(4, film.getReleaseYear());
+			st.setInt(5, 1);
+			st.setInt(6, film.getRentalDuration());
+			st.setDouble(7, film.getRentalRate());
+			st.setInt(8, film.getLength());
+			st.setDouble(9, film.getReplacementCost());
+			st.setString(10, film.getRating());
+			st.setString(11, film.getSpecialFeatures());
+			int updateCount = st.executeUpdate();
+			if (updateCount == 1) {
+				sql = "DELETE FROM film WHERE film=?";
+				st = conn.prepareStatement(sql);
+				updateCount = st.executeUpdate();
+				sql = "INSERT INTO film (film_id) VALUES (?,?)";
+				st = conn.prepareStatement(sql);
+			}
+			conn.commit();
 
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+//		throw new RuntimeException("Error inserting film " + film);
+			return false;
+
+		}
+		return true;
 	}
 
 	@Override
-	public String deleteFilm(int FilmID) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean deleteFilm(Film Film) throws SQLException {
+		Connection conn = DriverManager.getConnection(url, user, pass);
+		try {
+			conn.setAutoCommit(false);
+			String sql = "DELETE FROM film WHERE film_id =?";
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, film.getId());
+			int updateCount = st.executeUpdate();
+			sql = "DELETE FROM film where id =?";
+			st = conn.prepareStatement(sql);
+			updateCount = st.executeUpdate();
+			conn.commit();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+//			throw new RuntimeException("Error inserting film " + film);
+			return false;
+
+		}
+		return true;
 	}
 
 	private Film mapResultSetToFilm(ResultSet rs) throws SQLException {
