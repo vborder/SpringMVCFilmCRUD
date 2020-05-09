@@ -2,6 +2,10 @@ package com.skilldistillery.film.data;
 
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+import com.skilldistillery.film.entities.Actor;
+>>>>>>> 16fba41522642740e55d781b7aafdd68b8547794
 import com.skilldistillery.film.entities.Film;
 
 public class FilmDAOImpl implements FilmDAO {
@@ -43,7 +47,11 @@ public class FilmDAOImpl implements FilmDAO {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int createFilm(Film film) {
+=======
+	public int addFilm(Film film) {
+>>>>>>> 16fba41522642740e55d781b7aafdd68b8547794
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -59,6 +67,7 @@ public class FilmDAOImpl implements FilmDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public Actor findActorByID(int actorID) {
@@ -66,6 +75,8 @@ public class FilmDAOImpl implements FilmDAO {
 		return null;
 	}
 
+=======
+>>>>>>> 16fba41522642740e55d781b7aafdd68b8547794
 	
 	
 	
