@@ -13,7 +13,7 @@ import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 public class FilmDAOImpl implements FilmDAO {
-
+	
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -21,6 +21,9 @@ public class FilmDAOImpl implements FilmDAO {
 			e.printStackTrace();
 		}
 	}
+
+
+	
 
 	private String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=MST";
 
@@ -57,6 +60,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
 				film.setLanguage(rs.getString("name"));
+				
 			}
 			conn.close();
 		} catch (SQLException e) {

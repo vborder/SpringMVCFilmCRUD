@@ -1,5 +1,6 @@
 package com.skilldistillery.film.controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,13 +35,12 @@ public class FilmController {
 		ModelAndView mav= new ModelAndView();
 		Film film=null;
 		
-		if(filmID < 1000) {
+		if(filmID <= 1000) {
 			film= dao.findFilmByID(filmID);
 		}
 		else {
 			film= dao.findCreatedFilmsByID(filmID);
 		}
-		
 		mav.addObject("film", film);
 		mav.setViewName("WEB-INF/result.jsp");
 		
@@ -50,7 +50,7 @@ public class FilmController {
 	
 	//Results for Search by Keyword
 	@RequestMapping(path="findByKeyword.do", params="keyword", method= RequestMethod.GET)
-	public ModelAndView getFilmsByKeyword(String keyword) {
+	public ModelAndView getFilmsByKeyword(String keyword) throws SQLException {
 		ModelAndView mav= new ModelAndView();
 		List<Film> films= new ArrayList<>();
 		
@@ -58,7 +58,7 @@ public class FilmController {
 		//films.addAll(dao.findCreatedFilmsByKeyword(keyword));
 		
 		mav.addObject("filmList", films);
-		mav.setViewName("WEB-INF/result.jsp");
+		mav.setViewName("WEB-INF/keywordResult.jsp");
 		
 		return mav;
 	}
@@ -76,6 +76,34 @@ public class FilmController {
 	public ModelAndView filmAdded(@ModelAttribute("newFilm") Film film) {
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("film", film);
+		mav.setViewName("WEB-INF/result.jsp");
+		
+		return mav;
+	}
+	
+	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
+	public ModelAndView editFilm(Film film) {
+		ModelAndView mav= new ModelAndView();
+		
+		int search= film.getId();
+		
+		if(search <= 1000) {
+			film= dao.findFilmByID(search);
+		}
+		else {
+			film= dao.findCreatedFilmsByID(search);
+		}
+		mav.addObject("film", film);
+		mav.setViewName("WEB-INF/result.jsp");
+		
+		
+		return mav;
+	}
+	
+	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
+	public ModelAndView editedFilm(Film film) {
+		ModelAndView mav= new ModelAndView();
+		dao.updateFilm(film);
 		mav.setViewName("WEB-INF/result.jsp");
 		
 		return mav;

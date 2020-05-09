@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +10,12 @@
 <body>
 	<h2>Film Details</h2>
 
-
+ <c:forEach var="film" items="${films }">
 	${film.id } ${film.title } ${film.description } ${film.releaseYear }
 	${film.languageId } ${film.rentalDuration } ${film.rentalRate }
 	${film.length } ${film.replacementCost } ${film.rating }
 	${film.specialFeatures }
-
+</c:forEach>
 
 	<h2>Delete Film</h2>
 	<LABEL for="id">Film ID: </LABEL>
