@@ -219,9 +219,9 @@ public class Film {
 		String r = "Film id: " + id + "\n" + "Title: " + title + "\n" + "Description: " + description + "\n"
 				+ "Release year: " + releaseYear + "\n" + "Language: " + language + "\n" + "\n";
 
-		for (Actor actor : actors) {
-			r += actor + "\n";
-		}
+//		for (Actor actor : actors) {
+//			r += actor + "\n";
+//		}
 
 		return r;
 	}

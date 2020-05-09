@@ -65,9 +65,11 @@ public class FilmController {
 	
 	//Redirect and FlashAttributes for Adding a Film
 	@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
-	public String createFilm(Film film, RedirectAttributes redir){
+	public String createFilm(Film film, RedirectAttributes redir) throws SQLException{
+		ModelAndView mav = new ModelAndView();
 		redir.addFlashAttribute("newFilm", film);
 //		film.setId(dao.createFilm(film));
+		
 		return "redirect:filmAdded.do";
 	}
 	
@@ -101,9 +103,14 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
-	public ModelAndView editedFilm(Film film) {
+	public ModelAndView editedFilm(Film film) throws SQLException{
 		ModelAndView mav= new ModelAndView();
-		dao.updateFilm(film);
+		try {
+			dao.updateFilm(film);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mav.setViewName("WEB-INF/result.jsp");
 		
 		return mav;
