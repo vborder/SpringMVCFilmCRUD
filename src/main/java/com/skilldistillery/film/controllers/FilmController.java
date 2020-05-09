@@ -11,8 +11,6 @@ import com.skilldistillery.film.data.FilmDAOImpl;
 @Controller
 public class FilmController {
 
-	@Autowired
-	FilmDAOImpl dao;
 	
 	@RequestMapping(path ="home.do", method= RequestMethod.GET)
 	public ModelAndView goHome() {

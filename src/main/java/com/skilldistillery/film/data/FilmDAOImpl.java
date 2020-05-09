@@ -2,10 +2,7 @@ package com.skilldistillery.film.data;
 
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 import com.skilldistillery.film.entities.Actor;
->>>>>>> 16fba41522642740e55d781b7aafdd68b8547794
 import com.skilldistillery.film.entities.Film;
 
 public class FilmDAOImpl implements FilmDAO {
