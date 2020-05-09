@@ -47,11 +47,7 @@ public class FilmDAOImpl implements FilmDAO {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public int createFilm(Film film) {
-=======
-	public int addFilm(Film film) {
->>>>>>> 16fba41522642740e55d781b7aafdd68b8547794
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -67,17 +63,6 @@ public class FilmDAOImpl implements FilmDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-<<<<<<< HEAD
-
-	@Override
-	public Actor findActorByID(int actorID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-=======
->>>>>>> 16fba41522642740e55d781b7aafdd68b8547794
-	
 	
 	
 }

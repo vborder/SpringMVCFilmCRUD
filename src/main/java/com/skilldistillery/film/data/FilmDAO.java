@@ -2,7 +2,6 @@ package com.skilldistillery.film.data;
 
 import java.util.List;
 
-import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 public interface FilmDAO {
@@ -13,7 +12,7 @@ public interface FilmDAO {
 	public Actor findActorByID(int actorID);
 	public List<Actor> findActorsByFilmID(int filmID);
 	
-	public int addFilm(Film film);
+	public int createFilm(Film film);
 	public void updateFilm(Film film);
 	public String deleteFilm(int FilmID);
 }
