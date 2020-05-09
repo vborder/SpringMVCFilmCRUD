@@ -33,7 +33,7 @@ public class Film {
 
 	}
 
-	public Film(int filmId, String title2, String desc, short releaseYear2, int langId, int rentDur, double rate,
+	public Film(int filmId, String title2, String desc, int releaseYear2, int langId, int rentDur, double rate,
 			int length2, double repCost, String rating2, String features) {
 	}
 
