@@ -10,10 +10,17 @@
 	<h2>Film Details</h2>
 
 
-	${film.id } ${film.title } ${film.description } ${film.releaseYear }
-	${film.languageId } ${film.rentalDuration } ${film.rentalRate }
-	${film.length } ${film.replacementCost } ${film.rating }
-	${film.specialFeatures }
+Film ID -	${film.id }<br>
+Title -	 ${film.title }<br>
+Description -	  ${film.description }<br>
+Release Year -	   ${film.releaseYear }<br>
+Language ID -	${film.languageId }<br>
+Rental Duration -	 ${film.rentalDuration }<br>
+Rental Cost -	  ${film.rentalRate }<br>
+Length -	${film.length }<br>
+Replacement Cost -	 ${film.replacementCost }<br>
+Rating -	  ${film.rating }<br>
+Special Features -	${film.specialFeatures }<br>
 
 
 	<h2>Delete Film</h2>
