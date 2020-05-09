@@ -60,11 +60,16 @@ public class FilmController {
 		
 		films.addAll(dao.findFilmsByKeyword(keyword));
 		//films.addAll(dao.findCreatedFilmsByKeyword(keyword));
-		
+		if (films.size() > 0) {
 		mav.addObject("filmList", films);
 		mav.setViewName("WEB-INF/keywordResult.jsp");
-		
+		}
+		else {
+			mav.setViewName("WEB-INF/resultNotFound.jsp");
+			
+		}
 		return mav;
+		
 	}
 	
 	//Redirect and FlashAttributes for Adding a Film
