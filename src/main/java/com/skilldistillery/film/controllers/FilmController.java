@@ -65,9 +65,9 @@ public class FilmController {
 	
 	//Redirect and FlashAttributes for Adding a Film
 	@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
-	public String creatFilm(Film film, RedirectAttributes redir){
+	public String createFilm(Film film, RedirectAttributes redir){
 		redir.addFlashAttribute("newFilm", film);
-		film.setId(dao.createFilm(film));
+//		film.setId(dao.createFilm(film));
 		return "redirect:filmAdded.do";
 	}
 	
