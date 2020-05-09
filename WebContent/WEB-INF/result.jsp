@@ -5,11 +5,13 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 <title>Search Result</title>
 </head>
 <body style="background-color:#b3e0ff">
     <div class="w-auto p-3"  >
+    <a href="http://localhost:8080/MVCFilmSite/" > Click here to go back home </a >
+    <br><br>
   <h2>  <span class="badge badge-primary">Film Details</span></h2>
 	
 
@@ -42,7 +44,7 @@ Special Features -	${film.specialFeatures }<br>
 	</em>
 	<div class="form-group">
    
-	<FORM action="EditFilm.do" method="GET">
+	<FORM action="editFilm.do" method="GET">
 
 
 		
