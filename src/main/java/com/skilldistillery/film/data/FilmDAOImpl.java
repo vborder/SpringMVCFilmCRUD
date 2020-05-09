@@ -265,7 +265,7 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setString(11, film.getSpecialFeatures());
 			int updateCount = st.executeUpdate();
 
-			if (updateCount == 1) {
+			if (updateCount > 1000) {
 				ResultSet keys = st.getGeneratedKeys();
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
@@ -335,24 +335,26 @@ public class FilmDAOImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-//		throw new RuntimeException("Error inserting film " + film);
+			System.out.println("The film update failed.");
 			return false;
 
 		}
+		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was updated.");
 		return true;
 	}
 
 	@Override
-	public boolean deleteFilm(Film Film) throws SQLException {
+	public boolean deleteFilm(Film film) throws SQLException {
 		Connection conn = DriverManager.getConnection(url, user, pass);
 		try {
 			conn.setAutoCommit(false);
-			String sql = "DELETE FROM film WHERE film_id =?";
+			String sql = "DELETE FROM film WHERE film.id =?";
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setInt(1, film.getId());
 			int updateCount = st.executeUpdate();
 			sql = "DELETE FROM film where id =?";
 			st = conn.prepareStatement(sql);
+			st.setInt(1, film.getId());
 			updateCount = st.executeUpdate();
 			conn.commit();
 
@@ -366,21 +368,22 @@ public class FilmDAOImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-//			throw new RuntimeException("Error inserting film " + film);
+			System.out.println("The film deletion failed.");
 			return false;
 
 		}
+		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was deleted.");
 		return true;
 	}
 
-	private Film mapResultSetToFilm(ResultSet rs) throws SQLException {
-		Film film = null;
-		film = new Film(rs.getInt("id"), rs.getString("title"), rs.getString("description"), rs.getInt("release_year"),
-				rs.getInt("language_id"), rs.getInt("rental_duration"), rs.getDouble("rental_rate"),
-				rs.getInt("length"), rs.getDouble("replacement_cost"), rs.getString("rating"),
-				rs.getString("special_features"));
-
-		return film;
-	}
+//	private Film mapResultSetToFilm(ResultSet rs) throws SQLException {
+//		Film film = null;
+//		film = new Film(rs.getInt("id"), rs.getString("title"), rs.getString("description"), rs.getInt("release_year"),
+//				rs.getInt("language_id"), rs.getInt("rental_duration"), rs.getDouble("rental_rate"),
+//				rs.getInt("length"), rs.getDouble("replacement_cost"), rs.getString("rating"),
+//				rs.getString("special_features"));
+//
+//		return film;
+//	}
 
 }

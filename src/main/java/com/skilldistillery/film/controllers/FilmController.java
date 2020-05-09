@@ -68,7 +68,7 @@ public class FilmController {
 	public String createFilm(Film film, RedirectAttributes redir) throws SQLException{
 		ModelAndView mav = new ModelAndView();
 		redir.addFlashAttribute("newFilm", film);
-		//film.setId(dao.createFilm(film));
+//		film.setId(dao.createFilm(film));
 		
 		return "redirect:filmAdded.do";
 	}
