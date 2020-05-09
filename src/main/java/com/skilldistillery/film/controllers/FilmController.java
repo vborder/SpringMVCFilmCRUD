@@ -1,5 +1,8 @@
 package com.skilldistillery.film.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.FilmDAO;
+import com.skilldistillery.film.entities.Film;
 
 @Controller
 public class FilmController {
@@ -20,4 +24,46 @@ public class FilmController {
 		mav.setViewName("WEB-INF/home.jsp");
 		return mav;
 	}
+	
+	@RequestMapping(path="findByID.do", params="filmID", method= RequestMethod.GET)
+	public ModelAndView getFilmByID(int filmID) {
+		ModelAndView mav= new ModelAndView();
+		Film film=null;
+		
+		if(filmID < 1000) {
+			film= dao.findFilmByID(filmID);
+		}
+		else {
+			film= dao.findCreatedFilmsByID(filmID);
+		}
+		
+		mav.addObject("film", film);
+		mav.setViewName("WEB-INF/result.jsp");
+		
+		
+		return mav;
+	}
+	
+	@RequestMapping(path="findByKeyword.do", params="keyword", method= RequestMethod.GET)
+	public ModelAndView getFilmsByKeyword(String keyword) {
+		ModelAndView mav= new ModelAndView();
+		List<Film> films= new ArrayList<>();
+		
+		films.addAll(dao.findFilmsByKeyword(keyword));
+		films.addAll(dao.findCreatedFilmsByKeyword(keyword));
+		
+		mav.addObject("filmList", films);
+		mav.setViewName("WEB-INF/result.jsp");
+		
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
