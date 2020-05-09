@@ -265,7 +265,7 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setString(11, film.getSpecialFeatures());
 			int updateCount = st.executeUpdate();
 
-			if (updateCount > 1000) {
+			if (updateCount == 1) {
 				ResultSet keys = st.getGeneratedKeys();
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
