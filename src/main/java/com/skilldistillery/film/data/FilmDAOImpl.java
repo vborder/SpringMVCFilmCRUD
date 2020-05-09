@@ -12,8 +12,19 @@ import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 public class FilmDAOImpl implements FilmDAO {
+	
+	static {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 
-	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
+
+	
+
+	private String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=MST";
 
 	private final String user = "student";
 	private final String pass = "student";
@@ -27,7 +38,7 @@ public class FilmDAOImpl implements FilmDAO {
 
 	@Override
 	public Film findFilmByID(int filmID) {
-	//	Film film = null;
+		Film film = null;
 
 		String user = "student";
 		String pass = "student";
@@ -39,11 +50,8 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setInt(1, filmID);
 			ResultSet rs = st.executeQuery();
 
-//			if (rs.next()) {
-//				film = mapResultSetToFilm(rs);
-//			}
-
 			if (rs.next()) {
+//				film = mapResultSetToFilm(rs);
 				film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
@@ -51,6 +59,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
 				film.setLanguage(rs.getString("name"));
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -61,7 +70,7 @@ public class FilmDAOImpl implements FilmDAO {
 	}
 
 	@Override
-	public List<Film> findFilmsByKeyword(String keyword) {
+	public List<Film> findFilmsByKeyword(String keyword) throws SQLException {
 		List<Film> films = new ArrayList<>();
 
 		String user = "student";
@@ -69,18 +78,30 @@ public class FilmDAOImpl implements FilmDAO {
 		String sql = "SELECT film.*, name FROM film JOIN language ON film.language_id = language.id "
 				+ "WHERE film.title LIKE ? OR film.description LIKE ?";
 
+		Connection conn = DriverManager.getConnection(url, user, pass);
+
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, "%" + keyword + "%");
+		st.setString(2, "%" + keyword + "%");
+
+		ResultSet rs = st.executeQuery();
+
 		try {
-			Connection conn = DriverManager.getConnection(url, user, pass);
-
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, "%" + keyword + "%");
-			stmt.setString(2, "%" + keyword + "%");
-
-			ResultSet rs = stmt.executeQuery();
-
 			while (rs.next()) {
 //				films = mapResultSetToFilm(rs);
+				Film film = new Film();
+				film.setId(rs.getInt("id"));
+				film.setTitle(rs.getString("title"));
+				film.setReleaseYear(rs.getInt("release_year"));
+				film.setRating(rs.getString("rating"));
+				film.setDescription(rs.getString("description"));
+				film.setLanguage(rs.getString("name"));
+//				film.setActors(findActorsByFilmId(film.getId()));
+				films.add(film);
+
 			}
+			rs.close();
+			st.close();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -100,7 +121,14 @@ public class FilmDAOImpl implements FilmDAO {
 			ResultSet rs = st.executeQuery();
 
 			if (rs.next()) {
-				film = mapResultSetToFilm(rs);
+//				film = mapResultSetToFilm(rs);
+				film = new Film();
+				film.setId(rs.getInt("id"));
+				film.setTitle(rs.getString("title"));
+				film.setReleaseYear(rs.getInt("release_year"));
+				film.setRating(rs.getString("rating"));
+				film.setDescription(rs.getString("description"));
+				film.setLanguage(rs.getString("name"));
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -110,15 +138,69 @@ public class FilmDAOImpl implements FilmDAO {
 	}
 
 	@Override
-	public List<Film> findCreatedFilmsByKeyword(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Film> findCreatedFilmsByKeyword(String keyword) throws SQLException {
+		List<Film> films = new ArrayList<>();
+
+		String user = "student";
+		String pass = "student";
+		String sql = "SELECT film.*, name FROM film JOIN language ON film.language_id = language.id "
+				+ "WHERE film.title LIKE ? OR film.description LIKE ?";
+
+		Connection conn = DriverManager.getConnection(url, user, pass);
+
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, "%" + keyword + "%");
+		st.setString(2, "%" + keyword + "%");
+
+		ResultSet rs = st.executeQuery();
+
+		try {
+			while (rs.next()) {
+//				films = mapResultSetToFilm(rs);
+				Film film = new Film();
+				film.setId(rs.getInt("id"));
+				film.setTitle(rs.getString("title"));
+				film.setReleaseYear(rs.getInt("release_year"));
+				film.setRating(rs.getString("rating"));
+				film.setDescription(rs.getString("description"));
+				film.setLanguage(rs.getString("name"));
+//				film.setActors(findActorsByFilmId(film.getId()));
+				films.add(film);
+
+			}
+			rs.close();
+			st.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return films;
 	}
 
 	@Override
-	public Actor findActorByID(int actorID) {
-		// TODO Auto-generated method stub
-		return null;
+	public Actor findActorByID(int actorID) throws SQLException {
+		Actor actor = null;
+
+		String user = "student";
+		String pass = "student";
+		String sql = "SELECT actor.id, actor.first_name, actor.last_name, title FROM actor "
+				+ "JOIN film_actor ON actor_id = actor.id" + "JOIN film on film_actor.film_id = film.id"
+				+ "WHERE actor.id = ?";
+
+		Connection conn = DriverManager.getConnection(url, user, pass);
+
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, actorID);
+		ResultSet actorResult = stmt.executeQuery();
+
+		if (actorResult.next()) {
+			actor = new Actor();
+			actor.setId(actorResult.getInt("id"));
+			actor.setFirstName(actorResult.getString("first_name"));
+			actor.setLastName(actorResult.getString("last_name"));
+		}
+
+		return actor;
 	}
 
 	@Override
@@ -158,11 +240,11 @@ public class FilmDAOImpl implements FilmDAO {
 		return actors;
 	}
 
-//	@Override
-//	public int addFilm(Film film) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
+	@Override
+	public int createFilm(Film film) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
 	public void updateFilm(Film film) {
@@ -184,12 +266,6 @@ public class FilmDAOImpl implements FilmDAO {
 				rs.getString("special_features"));
 
 		return film;
-	}
-
-	@Override
-	public int createFilm(Film film) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
