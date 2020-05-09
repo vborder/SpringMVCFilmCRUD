@@ -9,13 +9,13 @@
 <body>
 
 	<h3>Find film by ID</h3>
-	<form action="filmID.do" method="GET">
-		<input type="text" name="Film" size="10" /> <input type="submit"
+	<form action="findByID.do" method="GET">
+		<input type="text" name="filmID" size="10" /> <input type="submit"
 			value="Search" />
 	</form>
 	
 	<h3>Find film by keyword</h3>
-	<form action="filmKeyword.do" method="GET">
+	<form action="findByKeyword.do" method="GET">
 		<input type="text" name="keyword" size="10" /> <input type="submit"
 			value="Search" />
 	</form>
