@@ -58,7 +58,7 @@ public class FilmController {
 		//films.addAll(dao.findCreatedFilmsByKeyword(keyword));
 		
 		mav.addObject("filmList", films);
-		mav.setViewName("WEB-INF/result.jsp");
+		mav.setViewName("WEB-INF/keywordResult.jsp");
 		
 		return mav;
 	}
