@@ -15,17 +15,17 @@
 	 <h2>  <span class="badge badge-success">Matching Films</span></h2>
 
  <c:forEach var="film" items="${filmList }">
-	Film id - ${film.id } <br>
+	<em>Film id</em> - ${film.id } <br>
 	
-	Film Title -  ${film.title } <br>
+	<em>Film Title</em> -  ${film.title } <br>
 	 
-	 Film Description -  ${film.description } <br><br>
+	 <em>Film Description</em> -  ${film.description } <br><br>
 	  
 	  
 </c:forEach>
 <br>
 	 <h2>  <span class="badge badge-danger">Delete Film</span></h2>
-	<LABEL for="id">Film ID: </LABEL>
+	
 	<form action="deleteFilm.do" method="POST">
 		<input type="number" name="filmId" size="20" placeholder="Enter ID to Delete"/> <input type="submit"
 			value="Delete" />
