@@ -310,12 +310,10 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setString(1, film.getTitle());
 			st.setString(2, film.getDescription());
 			st.setInt(3, film.getReleaseYear());
-
-			st.setInt(4, film.getLanguageId());
-			st.setInt(5, film.getRentalDuration());
-			st.setDouble(6, film.getRentalRate());
-			st.setInt(7, film.getLength());
-			st.setDouble(8, film.getReplacementCost());
+			st.setInt(4, film.getRentalDuration());
+			st.setDouble(5, film.getRentalRate());
+			st.setInt(6, film.getLength());
+			st.setDouble(7, film.getReplacementCost());
 
 		//	st.setString(10, film.getRating());
 		//	st.setString(11, film.getSpecialFeatures());
@@ -324,7 +322,7 @@ public class FilmDAOImpl implements FilmDAO {
 			if (updateCount == 1) {
 
 				st = conn.prepareStatement(sql);
-//				System.out.println("The film update was successful");
+				System.out.println("The film update was successful");
 				conn.commit();
 			}
 
