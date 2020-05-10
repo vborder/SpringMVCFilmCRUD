@@ -254,21 +254,21 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 		conn.setAutoCommit(false);
 		String sql = "INSERT INTO film (film.title, film.description, film.release_year, film.language_id,"
-				+ " film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features"
-				+ "VALUES(?, ?, ?, 1, ?, ?, ?, ?, ?, ?)";
+				+ " film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features)"
+				+ " VALUES(?, ?, ?, 1, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 //			st.setInt(1, film.getId());
 		st.setString(1, film.getTitle());
 		st.setString(2, film.getDescription());
 		st.setInt(3, film.getReleaseYear());
-//			st.setInt(4, 1)
+		st.setInt(4, 1);
 		st.setInt(4, film.getRentalDuration());
 		st.setDouble(5, film.getRentalRate());
 		st.setInt(6, film.getLength());
 		st.setDouble(7, film.getReplacementCost());
-		st.setString(8, film.getRating());
+		st.setString(8, "G");
 		st.setString(9, film.getSpecialFeatures());
-
+		System.out.println(st);
 		int updateCount = st.executeUpdate();
 
 		if (updateCount == 1) {
