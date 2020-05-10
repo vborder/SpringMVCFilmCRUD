@@ -52,31 +52,31 @@ Special Features -	${film.specialFeatures }<br>
 			
 			 <LABEL
 				for="title">Title - ${film.title } </LABEL> <INPUT type="text"
-				id="title" placeholder="Enter new title"><BR>
+				id="title" placeholder="Enter new title" name="title"><BR>
 				
 				 <LABEL for="description">Description - 
-				${film.description } </LABEL> <INPUT type="text" id="description" placeholder="Enter new description"><BR>
+				${film.description } </LABEL> <INPUT type="text" id="description" placeholder="Enter new description" name="description"><BR>
 				
 				
 			<LABEL for="releaseYear">Release year - ${film.releaseYear } </LABEL> <INPUT
-				type="text" id="releaseYear" placeholder="Enter new year"><BR> 
+				type="text" id="releaseYear" placeholder="Enter new year" name="releaseYear"><BR> 
 				
 			
 				
 				 <LABEL
 				for="rentalDuration">Rental duration - ${film.rentalDuration } day
-			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="Enter new duration"><BR> 
+			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="Enter new duration" name="rentalDuration"><BR> 
 			
 			<LABEL
 				for="rentalRate">Rental cost - $${filmRental_rate } </LABEL> <INPUT
-				type="text" id="rentalRate" placeholder="Enter new cost"><BR> 
+				type="text" id="rentalRate" placeholder="Enter new cost" name="replacementCost"><BR> 
 				
 				<LABEL for="length">Film
-				Length - ${film.length } minutes</LABEL> <INPUT type="text" id="length" placeholder="Enter new length"><BR>
+				Length - ${film.length } minutes</LABEL> <INPUT type="text" id="length" placeholder="Enter new length" name="length"><BR>
 				
 				
 			<LABEL for="replacementCost">Cost to replace -
-				$${film.replacementCost } </LABEL> <INPUT type="text" id="replacementCost" placeholder="Enter new cost"><BR>
+				$${film.replacementCost } </LABEL> <INPUT type="text" id="replacementCost" placeholder="Enter new cost" name="replacementCost"><BR>
 				
 				
 	

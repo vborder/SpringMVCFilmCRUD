@@ -304,11 +304,11 @@ public class FilmDAOImpl implements FilmDAO {
 		Connection conn = DriverManager.getConnection(url, user, pass);
 		try {
 			conn.setAutoCommit(false);
-			String sql = "UPDATE film SET id=?, title=?, description=?, release_year=?, language_id=?,"
+			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?,"
 					+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=?"
 					+ "WHERE id=?";
 			PreparedStatement st = conn.prepareStatement(sql);
-			st.setInt(1, film.getId());
+		//	st.setInt(1, film.getId());
 			st.setString(2, film.getTitle());
 			st.setString(3, film.getDescription());
 			st.setInt(4, film.getReleaseYear());

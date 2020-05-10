@@ -99,37 +99,40 @@ public class FilmController {
 	//^^^^^^^^^^^^^^^^^^^^Note for Mike- don't touch anything above^^^^^^^^^^^^^^^^
 	
 	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
-	public ModelAndView editFilm(Film film) {
+	public ModelAndView editFilm(Film film) throws SQLException {
 		ModelAndView mav= new ModelAndView();
 		
 		int search= film.getId();
 		
 		if(search <= 1000) {
 			film= dao.findFilmByID(search);
+			dao.updateFilm(film);
 		}
 		else {
 			film= dao.findCreatedFilmsByID(search);
+			dao.updateFilm(film);
 		}
 		mav.addObject("film", film);
+		
 		mav.setViewName("WEB-INF/result.jsp");
 		
 		
 		return mav;
 	}
 	
-	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
-	public ModelAndView editedFilm(Film film) throws SQLException{
-		ModelAndView mav= new ModelAndView();
-		try {
-			dao.updateFilm(film);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		mav.setViewName("WEB-INF/result.jsp");
-		
-		return mav;
-	}
+//	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
+//	public ModelAndView editedFilm(Film film) throws SQLException{
+//		ModelAndView mav= new ModelAndView();
+//		try {
+//			dao.updateFilm(film);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		mav.setViewName("WEB-INF/result.jsp");
+//		
+//		return mav;
+//	}
 	
 	
 //	@RequestMapping(path= "deleteFilm.do", method= RequestMethod.POST)
