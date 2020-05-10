@@ -296,20 +296,20 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			conn.setAutoCommit(false);
 			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?,"
-					+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=?"
+					+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?"
 					+ "WHERE id=?";
 			PreparedStatement st = conn.prepareStatement(sql);
 		//	st.setInt(1, film.getId());
-			st.setString(2, film.getTitle());
-			st.setString(3, film.getDescription());
-			st.setInt(4, film.getReleaseYear());
-			st.setInt(5, 1);
-			st.setInt(6, film.getRentalDuration());
-			st.setDouble(7, film.getRentalRate());
-			st.setInt(8, film.getLength());
-			st.setDouble(9, film.getReplacementCost());
-			st.setString(10, film.getRating());
-			st.setString(11, film.getSpecialFeatures());
+			st.setString(1, film.getTitle());
+			st.setString(2, film.getDescription());
+			st.setInt(3, film.getReleaseYear());
+			st.setInt(4, 1);
+			st.setInt(5, film.getRentalDuration());
+			st.setDouble(6, film.getRentalRate());
+			st.setInt(7, film.getLength());
+			st.setDouble(8, film.getReplacementCost());
+		//	st.setString(10, film.getRating());
+		//	st.setString(11, film.getSpecialFeatures());
 			int updateCount = st.executeUpdate();
 			if (updateCount == 1) {
 				sql = "DELETE FROM film WHERE film=?";
