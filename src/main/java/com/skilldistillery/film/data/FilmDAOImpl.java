@@ -250,13 +250,13 @@ public class FilmDAOImpl implements FilmDAO {
 			conn.setAutoCommit(false);
 			String sql = "INSERT INTO film (id, title, description, release_year, language_id,"
 					+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
-					+ "VALUES (?, ?)";
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			st.setInt(1, film.getId());
 			st.setString(2, film.getTitle());
 			st.setString(3, film.getDescription());
 			st.setInt(4, film.getReleaseYear());
-			st.setInt(5, 1);
+			st.setInt(5, film.getLanguageId());
 			st.setInt(6, film.getRentalDuration());
 			st.setDouble(7, film.getRentalRate());
 			st.setInt(8, film.getLength());
@@ -289,7 +289,7 @@ public class FilmDAOImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting film " + film);
+			//throw new RuntimeException("Error inserting film " + film);
 		}
 
 		return film;

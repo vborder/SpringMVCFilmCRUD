@@ -75,14 +75,33 @@ public class FilmController {
 	}
 	
 	//Redirect and FlashAttributes for Adding a Film
-	@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
-	public String createFilm(Film film, RedirectAttributes redir) throws SQLException{
-		ModelAndView mav = new ModelAndView();
-		redir.addFlashAttribute("newFilm", film);
-//		film.setId(dao.createFilm(film));
+	@RequestMapping(path="addFilm.do", method= RequestMethod.POST		)
+	public Film createFilm(String title, String description, Integer releaseYear, int languageId,
+			int rentalDuration, double rentalRate, Integer length, double replacementCost,
+			String rating, String specialFeatures) throws SQLException{
+		Film film = new Film();
+		film.setId(1234);
+		film.setTitle(title);
+		film.setDescription(description);
+		film.setLanguageId(languageId);
+		film.setReleaseYear(releaseYear);
+		film.setRentalDuration(rentalDuration);
+		film.setSpecialFeatures(specialFeatures);
+		film.setLength(length);
+		dao.createFilm(film);
 		
-		return "redirect:filmAdded.do";
+		
+		
+		return film;
 	}
+//		@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
+//		public String createFilm(Film film, RedirectAttributes redir) throws SQLException{
+//		ModelAndView mav = new ModelAndView();
+//		redir.addFlashAttribute("newFilm", film);
+////		film.setId(dao.createFilm(film));
+//		
+//		return "redirect:filmAdded.do";
+//	}
 	
 	//Film added
 	@RequestMapping(path="filmAdded.do", method= RequestMethod.GET)
