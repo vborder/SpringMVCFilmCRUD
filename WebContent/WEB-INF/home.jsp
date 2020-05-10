@@ -57,7 +57,7 @@
 				 <LABEL for="rental_rate">Rental
 				cost:</LABEL><INPUT
 				type="text" id="rental_rate" placeholder="Enter Rental Cost"
-				name="rentalCost"><br>
+				name="rentalRate"><br>
 				
 				
 			<LABEL for="length">Film Length: </LABEL> <INPUT type="text"
