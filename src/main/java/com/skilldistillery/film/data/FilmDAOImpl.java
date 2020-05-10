@@ -69,7 +69,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(rs.getString("rating"));
 				film.setSpecialFeatures(rs.getString("special_features"));
 				film.setActors(findActorsByFilmID(filmID));
-				film.setCategory(rs.getString("category_name"));
+				film.setCategory(rs.getString("name"));
 			}
 			conn.close();
 		} catch (SQLException e) {
