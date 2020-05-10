@@ -260,7 +260,7 @@ public class FilmDAOImpl implements FilmDAO {
 		st.setString(9, "G");
 		st.setString(10, film.getSpecialFeatures());
 
-		System.out.println(st);
+//		System.out.println(st);
 		int updateCount = st.executeUpdate();
 
 		if (updateCount == 1) {
@@ -286,50 +286,50 @@ public class FilmDAOImpl implements FilmDAO {
 		}
 		// throw new RuntimeException("Error inserting film " + film);
 	}
-	return film;
+	return thisFilm;
 	
 	}
 
 	@Override
 	public boolean updateFilm(Film film) throws SQLException {
+		String user = "student";
+		String pass = "student";
+		
 		Connection conn = DriverManager.getConnection(url, user, pass);
+		
 		try {
 			conn.setAutoCommit(false);
-<<<<<<< HEAD
+
 			String sql = "UPDATE film SET film.title=?, film.description=?, film.release_year=?, film.language_id=?,"
 					+ " film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?, film.rating=?, film.special_features=?"
 					+ "WHERE film.id=?";
-=======
-			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?,"
-					+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?"
-					+ "WHERE id=?";
->>>>>>> 37b2e8f7049ecb8398d4aa29f78ea3a105264b5a
+//			String sql = "UPDATE film SET film.title, film.description, film.release_year, film.language_id, "
+//					+ "film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features"
+//					+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 			PreparedStatement st = conn.prepareStatement(sql);
 		//	st.setInt(1, film.getId());
 			st.setString(1, film.getTitle());
 			st.setString(2, film.getDescription());
 			st.setInt(3, film.getReleaseYear());
-			st.setInt(4, 1);
+			st.setInt(4, film.getLanguageId());
 			st.setInt(5, film.getRentalDuration());
 			st.setDouble(6, film.getRentalRate());
 			st.setInt(7, film.getLength());
 			st.setDouble(8, film.getReplacementCost());
-<<<<<<< HEAD
-			st.setString(9, film.getRating());
-			st.setString(10, film.getSpecialFeatures());
-=======
+
 		//	st.setString(10, film.getRating());
 		//	st.setString(11, film.getSpecialFeatures());
->>>>>>> 37b2e8f7049ecb8398d4aa29f78ea3a105264b5a
 			int updateCount = st.executeUpdate();
 			if (updateCount == 1) {
-				sql = "DELETE FROM film WHERE film=?";
+//				sql = "DELETE FROM film WHERE film.id=?";
+//				st = conn.prepareStatement(sql);
+//				updateCount = st.executeUpdate();
+//				sql = "INSERT INTO film (film.id) VALUES (?,?)";
 				st = conn.prepareStatement(sql);
-				updateCount = st.executeUpdate();
-				sql = "INSERT INTO film (film.id) VALUES (?,?)";
-				st = conn.prepareStatement(sql);
+//				System.out.println("The film update was successful");
+				conn.commit();
 			}
-			conn.commit();
 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -345,7 +345,7 @@ public class FilmDAOImpl implements FilmDAO {
 			return false;
 
 		}
-		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was updated.");
+//		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was updated.");
 		return true;
 	}
 
