@@ -39,8 +39,7 @@ homepage and re-inputting the FilmID and selecting delete.
 keyword searches we opted to not list all of the actors, but an individual movie return
 displays the actors in their own separate section below the film details.
 - We cannot edit the Actors... yet
-- All film entries with IDs less than 1000 are read only by design. They cannot be
-edited or deleted.
+- All film entries with IDs less than 1000 are by design unable to be deleted.
 - To input a new film, you must enter each of the fields. Our front-end genie, Jacob,
 designed it that way so we can enjoy seamless film creations in our database.
 - Check out that reset on the Edit Film section. Neat, right?
