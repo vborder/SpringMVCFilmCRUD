@@ -112,7 +112,7 @@ public class Film {
 		return rentalRate;
 	}
 
-	public void setRentalRate(Double rentalRate) {
+	public void setRentalRate(double rentalRate) {
 		this.rentalRate = rentalRate;
 	}
 

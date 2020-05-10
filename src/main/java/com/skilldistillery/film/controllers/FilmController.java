@@ -85,34 +85,6 @@ public class FilmController {
 		return mav;
 	}
 	
-//	@RequestMapping(path="addFilm.do", method= RequestMethod.POST		)
-//	public Film createFilm(String title, String description, Integer releaseYear, int languageId,
-//			int rentalDuration, double rentalRate, Integer length, double replacementCost,
-//			String rating, String specialFeatures) throws SQLException{
-//		Film film = new Film();
-//		film.setId(1234);
-//		film.setTitle(title);
-//		film.setDescription(description);
-//		film.setLanguageId(languageId);
-//		film.setReleaseYear(releaseYear);
-//		film.setRentalDuration(rentalDuration);
-//		film.setSpecialFeatures(specialFeatures);
-//		film.setLength(length);
-//		dao.createFilm(film);
-//		
-//		return film;
-//	}
-//	
-//	
-//	//Redirect and FlashAttributes for Adding a Film
-//		@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
-//		public String createFilm(Film film, RedirectAttributes redir) throws SQLException{
-//		ModelAndView mav = new ModelAndView();
-//		redir.addFlashAttribute("newFilm", film);
-//		film.setId(dao.createFilm(film));
-//		
-//		return "redirect:filmAdded.do";
-//	}
 	
 	//Film added
 	@RequestMapping(path="filmAdded.do", method= RequestMethod.GET)
@@ -123,49 +95,54 @@ public class FilmController {
 		
 		return mav;
 	}
-//	
-//	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
-//	public ModelAndView editFilm(Film film) {
-//		ModelAndView mav= new ModelAndView();
-//		
-//		int search= film.getId();
-//		
-//		if(search <= 1000) {
-//			film= dao.findFilmByID(search);
-//		}
-//		else {
-//			film= dao.findCreatedFilmsByID(search);
-//		}
-//		mav.addObject("film", film);
-//		mav.setViewName("WEB-INF/result.jsp");
-//		
-//		
-//		return mav;
-//	}
-//	
-//	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
-//	public ModelAndView editedFilm(Film film) throws SQLException{
-//		ModelAndView mav= new ModelAndView();
-//		try {
-//			dao.updateFilm(film);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		mav.setViewName("WEB-INF/result.jsp");
-//		
-//		return mav;
-//	}
-//	
-//	
+	
+	//^^^^^^^^^^^^^^^^^^^^Note for Mike- don't touch anything above^^^^^^^^^^^^^^^^
+	
+	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
+	public ModelAndView editFilm(Film film) {
+		ModelAndView mav= new ModelAndView();
+		
+		int search= film.getId();
+		
+		if(search <= 1000) {
+			film= dao.findFilmByID(search);
+		}
+		else {
+			film= dao.findCreatedFilmsByID(search);
+		}
+		mav.addObject("film", film);
+		mav.setViewName("WEB-INF/result.jsp");
+		
+		
+		return mav;
+	}
+	
+	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
+	public ModelAndView editedFilm(Film film) throws SQLException{
+		ModelAndView mav= new ModelAndView();
+		try {
+			dao.updateFilm(film);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mav.setViewName("WEB-INF/result.jsp");
+		
+		return mav;
+	}
+	
+	
 //	@RequestMapping(path= "deleteFilm.do", method= RequestMethod.POST)
 //	public String deleteFilm(Film film, RedirectAttributes redir) {
 //		redir.addFlashAttribute("???", dao.deleteFilm(film);
 //		return "redirect:deleted.do";
 //	}
 //	
+
 //	@RequestMapping(path= "deleted.do", method= RequestMethod.DELETE)
 //	public ModelAndView deleteFilm {
+
+
 //	
 //	}
 	

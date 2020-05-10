@@ -56,7 +56,7 @@
 				
 				 <LABEL for="rental_rate">Rental
 				cost:</LABEL><INPUT
-				type="text" id="rental_rate" placeholder="Enter Rental Duration"
+				type="text" id="rental_rate" placeholder="Enter Rental Cost"
 				name="rentalCost"><br>
 				
 				
