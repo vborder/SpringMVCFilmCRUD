@@ -9,7 +9,7 @@ public class Film {
 	private Integer releaseYear;
 	private Integer languageId;
 	private Integer rentalDuration;
-	private Double rentalRate;
+	private double rentalRate;
 	private Integer length;
 	private Double replacementCost;
 	private String rating;
@@ -112,7 +112,7 @@ public class Film {
 		return rentalRate;
 	}
 
-	public void setRentalRate(Double rentalRate) {
+	public void setRentalRate(double rentalRate) {
 		this.rentalRate = rentalRate;
 	}
 
