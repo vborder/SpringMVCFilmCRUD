@@ -57,9 +57,9 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setReleaseYear(rs.getInt("release_year"));
 				film.setLanguageId(rs.getInt("id"));
 				film.setRentalDuration(rs.getInt("language_id"));
-				film.setRentalRate(rs.getInt("rental_rate"));
+				film.setRentalRate(rs.getDouble("rental_rate"));
 				film.setLength(rs.getInt("length"));
-				film.setReplacementCost(rs.getInt("replacement_cost"));
+				film.setReplacementCost(rs.getDouble("replacement_cost"));
 				film.setRating(rs.getString("rating"));
 				film.setSpecialFeatures(rs.getString("special_features"));
 
