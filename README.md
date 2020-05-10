@@ -25,7 +25,7 @@ from the homepage. A successful query results in a landing page with the returne
 search result including the *Film Actors for each movie* and the newly displayed
 *Category* fields.
 2. **Update**- the user is capable of changing the adjustable fields and alter
-the database entries of newly created films with IDs 1000+. I like the term Edit
+the database entries. I like the term Edit
 better, but for some reason we like CRUD better than CRED. Updating entries sounds
 like editing to me. To *"update"* an entry, you must search and return it and
 edit it from the results page.
