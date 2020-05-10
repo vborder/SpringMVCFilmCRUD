@@ -95,25 +95,24 @@ public class FilmController {
 	}
 
 	// ^^^^^^^^^^^^^^^^^^^^Note for Mike- don't touch anything above^^^^^^^^^^^^^^^^
-//	
-//	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
-//	public ModelAndView editFilm(Film film) {
-//		ModelAndView mav= new ModelAndView();
-//		
-//		int search= film.getId();
-//		
-//		if(search <= 1000) {
-//			film= dao.findFilmByID(search);
-//		}
-//		else {
-//			film= dao.findCreatedFilmsByID(search);
-//		}
-//		mav.addObject("film", film);
-//		mav.setViewName("WEB-INF/result.jsp");
-//		
-//		
-//		return mav;
-//	}
+	
+	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
+	public ModelAndView editFilm(Film film) throws SQLException {
+		ModelAndView mav= new ModelAndView();
+		dao.updateFilm(film);
+		mav.addObject("film", film);
+		mav.setViewName("WEB-INF/result.jsp");
+		return mav;
+		
+		
+	}
+		
+		
+			
+	
+		
+		
+		
 //	
 //	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
 //	public ModelAndView editedFilm(Film film) throws SQLException{
@@ -129,22 +128,22 @@ public class FilmController {
 //		return mav;
 //	}
 	
-	@RequestMapping(path="updateFilm.do", method= RequestMethod.POST)
-	public ModelAndView updateFilm(Film film)
-
-	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm(@RequestParam("id") int filmId) throws SQLException {
-		ModelAndView mav = new ModelAndView();
-		Film film = dao.findCreatedFilmsByID(filmId);
-		boolean deleted = dao.deleteFilm(film);
-		if (deleted) {
-			mav.addObject("deleted", deleted);
-			mav.setViewName("result.jsp");
-		}
-		else {
-			mav.setViewName("deleteFailed.jsp");
-		}
-		return mav;
-	}
+//	@RequestMapping(path="updateFilm.do", method= RequestMethod.POST)
+//	public ModelAndView updateFilm(Film film)
+//
+//	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
+//	public ModelAndView deleteFilm(@RequestParam("id") int filmId) throws SQLException {
+//		ModelAndView mav = new ModelAndView();
+//		Film film = dao.findCreatedFilmsByID(filmId);
+//		boolean deleted = dao.deleteFilm(film);
+//		if (deleted) {
+//			mav.addObject("deleted", deleted);
+//			mav.setViewName("result.jsp");
+//		}
+//		else {
+//			mav.setViewName("deleteFailed.jsp");
+//		}
+//		return mav;
+//	}
 
 }
