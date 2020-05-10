@@ -93,12 +93,18 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			while (rs.next()) {
 				Film film = new Film();
+				film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
-				film.setReleaseYear(rs.getInt("release_year"));
-				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
-				film.setLanguage(rs.getString("name"));
+				film.setReleaseYear(rs.getInt("release_year"));
+				film.setLanguageId(rs.getInt("id"));
+				film.setRentalDuration(rs.getInt("language_id"));
+				film.setRentalRate(rs.getDouble("rental_rate"));
+				film.setLength(rs.getInt("length"));
+				film.setReplacementCost(rs.getDouble("replacement_cost"));
+				film.setRating(rs.getString("rating"));
+				film.setSpecialFeatures(rs.getString("special_features"));
 				films.add(film);
 
 			}
@@ -126,10 +132,15 @@ public class FilmDAOImpl implements FilmDAO {
 				film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
-				film.setReleaseYear(rs.getInt("release_year"));
-				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
-				film.setLanguage(rs.getString("name"));
+				film.setReleaseYear(rs.getInt("release_year"));
+				film.setLanguageId(rs.getInt("id"));
+				film.setRentalDuration(rs.getInt("language_id"));
+				film.setRentalRate(rs.getDouble("rental_rate"));
+				film.setLength(rs.getInt("length"));
+				film.setReplacementCost(rs.getDouble("replacement_cost"));
+				film.setRating(rs.getString("rating"));
+				film.setSpecialFeatures(rs.getString("special_features"));
 			}
 			conn.close();
 		} catch (SQLException e) {

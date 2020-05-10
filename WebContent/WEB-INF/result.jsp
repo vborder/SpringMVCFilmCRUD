@@ -78,6 +78,10 @@ Special Features -	${film.specialFeatures }<br>
 				
 			<LABEL for="replacement_cost">Cost to replace -
 				 </LABEL> <INPUT type="text" id="replacementCost" value="${film.replacementCost }" name="replacementCost"><BR>
+				 
+				 <input type="hidden" id="id" name="languageId" value="${film.languageId}">
+				 <input type="hidden" id="id" name="rating" value="${film.rating}">
+				 <input type="hidden" id="id" name="specialFeatures" value="${film.specialFeatures}">
 				
 				
 	
