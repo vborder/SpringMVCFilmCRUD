@@ -29,6 +29,7 @@ Length -	${film.length } minutes<br>
 Replacement Cost -	 $${film.replacementCost }<br>
 Rating -	  ${film.rating }<br>
 Special Features -	${film.specialFeatures }<br>
+Film Category - ${film.category }<br>
  <h2>  <span class="badge badge-primary">Film Actors</span></h2>
 
 <c:forEach var="actors" items="${film.actors }">
@@ -45,7 +46,7 @@ ${actors.firstName } ${actors.lastName}
 	<div class="text-white">
 
 	<form action="deleteFilm.do" method="POST">
-		<input type="text" placeholder="Enter film ID to delete" name="filmId" size="20" /> <input type="submit"
+		<input type="number" placeholder="Enter film ID to delete" name="filmId" size="20" required/> <input type="submit"
 			value="Delete" />
 	</form>
 	</div>
@@ -60,39 +61,40 @@ ${actors.firstName } ${actors.lastName}
 
 		
 			<INPUT type="hidden"
-				id="title" value="${film.id }" name="id" > <BR>
+				id="id" value="${film.id }" name="id" > <BR>
 			
 			 <LABEL
 				for="title">Title -  </LABEL> <INPUT type="text"
-				id="title" value="${film.title }" name="title"><BR>
+				id="title" value="${film.title }" name="title" maxlength="10"><BR>
 				
 				 <LABEL for="description">Description - 
-				 </LABEL> <INPUT type="text" id="description" value="${film.description }" name="description"><BR>
+				 </LABEL> <INPUT type="text" id="description" value="${film.description }" size="50" name="description" maxlength="255"><BR>
 				
 				
 			<LABEL for="release_year">Release year -  </LABEL> <INPUT
-				type="text" id="releaseYear" value="${film.releaseYear }" name="releaseYear"><BR> 
+				type="number" id="releaseYear" min="1995" max="2020" value="${film.releaseYear }" name="releaseYear"><BR> 
 				
 			
 				
 				 <LABEL
 				for="rental_duration">Rental duration -  day
-			</LABEL> <INPUT type="text" id="rentalDuration" value="${film.rentalDuration }" name="rentalDuration"><BR> 
+			</LABEL> <INPUT type="number" min="1" max="999" id="rentalDuration" value="${film.rentalDuration }" name="rentalDuration"><BR> 
 			
 			<LABEL
 				for="rental_rate">Rental cost -  </LABEL> <INPUT
-				type="text" id="rentalRate" value="${film.rentalRate }" name="rentalRate"><BR> 
+				type="number" min=".99" max="9.99" id="rentalRate" value="${film.rentalRate }" name="rentalRate"><BR> 
 				
 				<LABEL for="length">Film
-				Length -  minutes</LABEL> <INPUT type="text" id="length" value="${film.length }" name="length"><BR>
+				Length -  minutes</LABEL> <INPUT type="number" min="1" max="99999" id="length" value="${film.length }" name="length"><BR>
 				
 				
 			<LABEL for="replacement_cost">Cost to replace -
-				 </LABEL> <INPUT type="text" id="replacementCost" value="${film.replacementCost }" name="replacementCost"><BR>
+				 </LABEL> <INPUT type="number" min=".99" max="99.99" id="replacementCost" value="${film.replacementCost }" name="replacementCost"><BR>
 				 
 				 <input type="hidden" id="id" name="languageId" value="${film.languageId}">
 				 <input type="hidden" id="id" name="rating" value="${film.rating}">
 				 <input type="hidden" id="id" name="specialFeatures" value="${film.specialFeatures}">
+				 <input type="hidden" id="id" name="category" value="${film.category}">
 				
 				
 	

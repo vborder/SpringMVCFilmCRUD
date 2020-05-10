@@ -26,14 +26,14 @@
 <br>
 	 <h2>  <span class="badge badge-danger">Delete Film</span></h2>
 	<LABEL for="id">Film ID: </LABEL>
-	<form action="deleteID.do" method="POST">
-		<input type="text" name="ID" size="20" placeholder="Enter ID to Delete"/> <input type="submit"
+	<form action="deleteFilm.do" method="POST">
+		<input type="number" name="filmId" size="20" placeholder="Enter ID to Delete"/> <input type="submit"
 			value="Delete" />
 	</form>
 <br><br>
 	 <h2>  <span class="badge badge-success">Full Details</span></h2>
 	<form action="findByID.do" method="GET">
-		<input type="text" name="input" size="20" placeholder="Enter desired ID"/> <input type="submit"
+		<input type="number" name="input" size="20" placeholder="Enter desired ID"/> <input type="submit"
 			value="Search" />
 	</form>
 	<br><br>

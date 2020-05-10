@@ -61,7 +61,7 @@ public class FilmController {
 		List<Film> films = new ArrayList<>();
 
 		films.addAll(dao.findFilmsByKeyword(keyword));
-		films.addAll(dao.findCreatedFilmsByKeyword(keyword));
+	//	films.addAll(dao.findCreatedFilmsByKeyword(keyword));
 		if (films.size() > 0) {
 			mav.addObject("filmList", films);
 			mav.setViewName("WEB-INF/keywordResult.jsp");
@@ -96,19 +96,16 @@ public class FilmController {
 
 	// ^^^^^^^^^^^^^^^^^^^^Note for Mike- don't touch anything above^^^^^^^^^^^^^^^^
 
-	
-	@RequestMapping(path="editFilm.do", method= RequestMethod.GET)
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
 	public ModelAndView editFilm(Film film) throws SQLException {
-		ModelAndView mav= new ModelAndView();
+		ModelAndView mav = new ModelAndView();
 		dao.updateFilm(film);
 		mav.addObject("film", film);
 		mav.setViewName("WEB-INF/result.jsp");
 		return mav;
-		
-		
+
 	}
-		
-		
+
 //	
 //	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
 //	public ModelAndView editedFilm(Film film) throws SQLException{
@@ -124,16 +121,19 @@ public class FilmController {
 //		return mav;
 //	}
 
-
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) throws SQLException {
 		ModelAndView mav = new ModelAndView();
 		try {
 		Film film = dao.findCreatedFilmsByID(filmId);
+		if (filmId > 1000) {
 		boolean deleted = dao.deleteFilm(film);
 		if (deleted) {
 			mav.setViewName("WEB-INF/deleteSuccesful.jsp");
 		}
+		}
+		else mav.setViewName("WEB-INF/deleteFailed.jsp");   
+		
 		}
 		catch (Exception e) {
 		
@@ -141,6 +141,6 @@ public class FilmController {
 		}
 		
 		return mav;
+	
 	}
-
 }
