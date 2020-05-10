@@ -160,22 +160,13 @@ public class FilmController {
 //	
 //	@RequestMapping(path= "deleteFilm.do", method= RequestMethod.POST)
 //	public String deleteFilm(Film film, RedirectAttributes redir) {
-//		redir.addFlashAttribute("???", dao.deleteFilm(film.getId()));
+//		redir.addFlashAttribute("???", dao.deleteFilm(film);
 //		return "redirect:deleted.do";
 //	}
 //	
-//	@RequestMapping(path= "deleted.do", method= RequestMethod.GET)
-//	public ModelAndView
+//	@RequestMapping(path= "deleted.do", method= RequestMethod.DELETE)
+//	public ModelAndView deleteFilm {
 //	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//	}
 	
 }

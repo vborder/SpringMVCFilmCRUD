@@ -49,7 +49,6 @@ public class FilmDAOImpl implements FilmDAO {
 			ResultSet rs = st.executeQuery();
 
 			if (rs.next()) {
-//				film = mapResultSetToFilm(rs);
 				film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
@@ -57,9 +56,9 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setReleaseYear(rs.getInt("release_year"));
 				film.setLanguageId(rs.getInt("id"));
 				film.setRentalDuration(rs.getInt("language_id"));
-				film.setRentalRate(rs.getInt("rental_rate"));
+				film.setRentalRate(rs.getDouble("rental_rate"));
 				film.setLength(rs.getInt("length"));
-				film.setReplacementCost(rs.getInt("replacement_cost"));
+				film.setReplacementCost(rs.getDouble("replacement_cost"));
 				film.setRating(rs.getString("rating"));
 				film.setSpecialFeatures(rs.getString("special_features"));
 
@@ -68,7 +67,6 @@ public class FilmDAOImpl implements FilmDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return film;
 	}
 
@@ -91,7 +89,6 @@ public class FilmDAOImpl implements FilmDAO {
 
 		try {
 			while (rs.next()) {
-//				films = mapResultSetToFilm(rs);
 				Film film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
@@ -99,7 +96,6 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
 				film.setLanguage(rs.getString("name"));
-//				film.setActors(findActorsByFilmId(film.getId()));
 				films.add(film);
 
 			}
@@ -124,7 +120,6 @@ public class FilmDAOImpl implements FilmDAO {
 			ResultSet rs = st.executeQuery();
 
 			if (rs.next()) {
-//				film = mapResultSetToFilm(rs);
 				film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
@@ -159,7 +154,6 @@ public class FilmDAOImpl implements FilmDAO {
 
 		try {
 			while (rs.next()) {
-//				films = mapResultSetToFilm(rs);
 				Film film = new Film();
 				film.setId(rs.getInt("id"));
 				film.setTitle(rs.getString("title"));
@@ -167,7 +161,6 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setRating(rs.getString("rating"));
 				film.setDescription(rs.getString("description"));
 				film.setLanguage(rs.getString("name"));
-//				film.setActors(findActorsByFilmId(film.getId()));
 				films.add(film);
 
 			}
@@ -202,7 +195,6 @@ public class FilmDAOImpl implements FilmDAO {
 			actor.setFirstName(actorResult.getString("first_name"));
 			actor.setLastName(actorResult.getString("last_name"));
 		}
-
 		return actor;
 	}
 
@@ -217,7 +209,7 @@ public class FilmDAOImpl implements FilmDAO {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			String sql = "SELECT actor.id, actor.first_name, actor.last_name "
 					+ " FROM film JOIN film_actor ON film.id = film_actor.film_id "
-					+ "JOIN actor on film_actor.actor_id = actor.id " + " WHERE film_id = ?";
+					+ "JOIN actor on film_actor.actor_id = actor.id " + " WHERE film.id = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmID);
@@ -239,7 +231,6 @@ public class FilmDAOImpl implements FilmDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return actors;
 	}
 
@@ -256,12 +247,11 @@ public class FilmDAOImpl implements FilmDAO {
 		String sql = "INSERT INTO film (film.title, film.description, film.release_year, film.language_id,"
 				+ " film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features)"
 				+ " VALUES(?, ?, ?, 1, ?, ?, ?, ?, ?, ?)";
+		
 		PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//			st.setInt(1, film.getId());
 		st.setString(1, film.getTitle());
 		st.setString(2, film.getDescription());
 		st.setInt(3, film.getReleaseYear());
-		st.setInt(4, 1);
 		st.setInt(4, film.getRentalDuration());
 		st.setDouble(5, film.getRentalRate());
 		st.setInt(6, film.getLength());
@@ -294,7 +284,6 @@ public class FilmDAOImpl implements FilmDAO {
 		}
 		// throw new RuntimeException("Error inserting film " + film);
 	}
-	
 	return film;
 	
 	}
@@ -356,7 +345,7 @@ public class FilmDAOImpl implements FilmDAO {
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setInt(1, film.getId());
 			int updateCount = st.executeUpdate();
-			sql = "DELETE FROM film where id =?";
+			sql = "DELETE FROM film WHERE film.id =?";
 			st = conn.prepareStatement(sql);
 			st.setInt(1, film.getId());
 			updateCount = st.executeUpdate();
@@ -376,18 +365,7 @@ public class FilmDAOImpl implements FilmDAO {
 			return false;
 
 		}
-		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was deleted.");
+		System.out.println("The film " + film.getId() + " " + film.getTitle() + " was deleted.");
 		return true;
 	}
-
-//	private Film mapResultSetToFilm(ResultSet rs) throws SQLException {
-//		Film film = null;
-//		film = new Film(rs.getInt("id"), rs.getString("title"), rs.getString("description"), rs.getInt("release_year"),
-//				rs.getInt("language_id"), rs.getInt("rental_duration"), rs.getDouble("rental_rate"),
-//				rs.getInt("length"), rs.getDouble("replacement_cost"), rs.getString("rating"),
-//				rs.getString("special_features"));
-//
-//		return film;
-//	}
-
 }
