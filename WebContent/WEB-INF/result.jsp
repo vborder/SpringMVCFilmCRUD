@@ -51,32 +51,32 @@ Special Features -	${film.specialFeatures }<br>
 			<LABEL for="id">Film ID - ${film.id } </LABEL> <BR>
 			
 			 <LABEL
-				for="title">Title - ${film.title } </LABEL> <INPUT type="text"
-				id="title" placeholder="Enter new title" name="title"><BR>
+				for="title">Title -  </LABEL> <INPUT type="text"
+				id="title" placeholder="${film.title }" name="title"><BR>
 				
 				 <LABEL for="description">Description - 
-				${film.description } </LABEL> <INPUT type="text" id="description" placeholder="Enter new description" name="description"><BR>
+				${film.description } </LABEL> <INPUT type="text" id="description" placeholder="${film.description }" name="description"><BR>
 				
 				
-			<LABEL for="releaseYear">Release year - ${film.releaseYear } </LABEL> <INPUT
-				type="text" id="releaseYear" placeholder="Enter new year" name="releaseYear"><BR> 
+			<LABEL for="releaseYear">Release year -  </LABEL> <INPUT
+				type="text" id="releaseYear" placeholder="${film.releaseYear }" name="releaseYear"><BR> 
 				
 			
 				
 				 <LABEL
-				for="rentalDuration">Rental duration - ${film.rentalDuration } day
-			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="Enter new duration" name="rentalDuration"><BR> 
+				for="rentalDuration">Rental duration -  day
+			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="${film.rentalDuration }" name="rentalDuration"><BR> 
 			
 			<LABEL
-				for="rentalRate">Rental cost - $${filmRental_rate } </LABEL> <INPUT
-				type="text" id="rentalRate" placeholder="Enter new cost" name="replacementCost"><BR> 
+				for="rentalRate">Rental cost -  </LABEL> <INPUT
+				type="text" id="rentalRate" placeholder="${film.rentalRate }" name="replacementCost"><BR> 
 				
 				<LABEL for="length">Film
-				Length - ${film.length } minutes</LABEL> <INPUT type="text" id="length" placeholder="Enter new length" name="length"><BR>
+				Length -  minutes</LABEL> <INPUT type="text" id="length" placeholder="${film.length }" name="length"><BR>
 				
 				
 			<LABEL for="replacementCost">Cost to replace -
-				$${film.replacementCost } </LABEL> <INPUT type="text" id="replacementCost" placeholder="Enter new cost" name="replacementCost"><BR>
+				 </LABEL> <INPUT type="text" id="replacementCost" placeholder="${film.replacementCost }" name="replacementCost"><BR>
 				
 				
 	
