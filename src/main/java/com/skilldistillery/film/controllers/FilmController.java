@@ -102,7 +102,6 @@ public class FilmController {
 		ModelAndView mav= new ModelAndView();
 		dao.updateFilm(film);
 		mav.addObject("film", film);
-		System.out.println(film);
 		mav.setViewName("WEB-INF/result.jsp");
 		return mav;
 		
@@ -133,8 +132,7 @@ public class FilmController {
 		Film film = dao.findCreatedFilmsByID(filmId);
 		boolean deleted = dao.deleteFilm(film);
 		if (deleted) {
-			mav.addObject("delete", deleted);
-			mav.setViewName("WEB-INF/result.jsp");
+			mav.setViewName("WEB-INF/deleteSuccesful.jsp");
 		}
 		}
 		catch (Exception e) {
