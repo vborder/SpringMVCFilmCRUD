@@ -280,7 +280,7 @@ public class FilmDAOImpl implements FilmDAO {
 		st.setString(9, "G");
 		st.setString(10, film.getSpecialFeatures());
 
-//		System.out.println(st);
+		System.out.println(st);
 		int updateCount = st.executeUpdate();
 
 		if (updateCount == 1) {

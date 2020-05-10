@@ -110,11 +110,6 @@ public class FilmController {
 	}
 		
 		
-			
-	
-		
-		
-		
 //	
 //	@RequestMapping(path="editedFilm.do", method= RequestMethod.POST)
 //	public ModelAndView editedFilm(Film film) throws SQLException{
