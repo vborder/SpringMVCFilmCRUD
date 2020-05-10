@@ -74,7 +74,6 @@ public class FilmController {
 		
 	}
 	
-<<<<<<< HEAD
 	//Redirect and FlashAttributes for Adding a Film
 	@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
 	public ModelAndView createFilm(Film film, RedirectAttributes redir) throws SQLException{
@@ -84,7 +83,8 @@ public class FilmController {
 		mav.setViewName ("redirect:filmAdded.do");
 		
 		return mav;
-=======
+	}
+	
 	@RequestMapping(path="addFilm.do", method= RequestMethod.POST		)
 	public Film createFilm(String title, String description, Integer releaseYear, int languageId,
 			int rentalDuration, double rentalRate, Integer length, double replacementCost,
@@ -100,10 +100,7 @@ public class FilmController {
 		film.setLength(length);
 		dao.createFilm(film);
 		
-		
-		
 		return film;
->>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 	}
 	
 	

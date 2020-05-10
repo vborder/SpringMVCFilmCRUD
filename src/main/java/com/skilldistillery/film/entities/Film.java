@@ -33,14 +33,11 @@ public class Film {
 
 	}
 
-<<<<<<< HEAD
-	public Film(String title2, String desc, int releaseYear2, int rentDur, double rate,
-=======
+//	public Film(String title2, String desc, int releaseYear2, int rentDur, double rate)
 	/*
 	 * This was previously empty. While the parameters were being used, they were never set to the objects fields.
 	 */
 	public Film(int filmId, String title2, String desc, int releaseYear2, int langId, int rentDur, double rate,
->>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 			int length2, double repCost, String rating2, String features) {
 		this.id= filmId;
 		this.title= title2;
@@ -69,8 +66,6 @@ public class Film {
 		this.rating= rating;
 	}
 	
-	
-
 	public void setId(int id) {
 		this.id = id;
 	}

@@ -31,18 +31,15 @@
 		<input type="text" name="keyword" size="20"
 			placeholder="Enter Keyword" /> <input type="submit" value="Search" />
 	</form>
-<<<<<<< HEAD
 <br><br>
 	  <h2>  <span class="badge badge-success">Input New Film</span></h2>
 	<form action="addFilm.do" method="POST">
-=======
 	<br>
 	<br>
 	<h2>
 		<span class="badge badge-success">Input New Film</span>
 	</h2>
 	<FORM action="addFilm.do" method="POST">
->>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 		<P>
 			<LABEL for="title">Title: </LABEL> <INPUT type="text" id="title"
 				placeholder="Enter Title" name="title"><BR> <LABEL
