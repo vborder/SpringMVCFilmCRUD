@@ -315,7 +315,7 @@ public class FilmDAOImpl implements FilmDAO {
 				sql = "DELETE FROM film WHERE film=?";
 				st = conn.prepareStatement(sql);
 				updateCount = st.executeUpdate();
-				sql = "INSERT INTO film (film_id) VALUES (?,?)";
+				sql = "INSERT INTO film (film.id) VALUES (?,?)";
 				st = conn.prepareStatement(sql);
 			}
 			conn.commit();
