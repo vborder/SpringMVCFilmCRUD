@@ -128,9 +128,7 @@ public class FilmController {
 //		
 //		return mav;
 //	}
-	
-	@RequestMapping(path="updateFilm.do", method= RequestMethod.POST)
-	public ModelAndView updateFilm(Film film)
+
 
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam("id") int filmId) throws SQLException {
