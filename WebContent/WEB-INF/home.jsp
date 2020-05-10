@@ -38,35 +38,35 @@
 	<FORM action="addFilm.do" method="POST">
 		<P>
 			<LABEL for="title">Title: </LABEL> <INPUT type="text" id="title"
-				placeholder="Enter Title" name="title" maxlength="10" required><BR>
+				placeholder="Enter Title" name="title" maxlength="10"  required><BR>
 				
 				 <LABEL
 				for="description">Description: </LABEL> <INPUT type="text"
-				id="description" placeholder="Enter Description" name="description" maxlength="255" required><BR>
+				id="description" placeholder="Enter Description" name="description" maxlength="255" size="25" required><BR>
 				
 				
 			<LABEL for="release_year">Release year: </LABEL> <INPUT type="number" min="1995" max="2020"
 				id="release_year" placeholder="Enter Release Year"
-				name="releaseYear" required><BR>
+				name="releaseYear" size="25" required><BR>
 				
 				 
 			<LABEL for="rental_duration">Rental duration: </LABEL> <INPUT
 				type="number" id="rental_duration" min="1" max="999" placeholder="Enter Rental Duration"
-				name="rentalDuration" required><BR>
+				name="rentalDuration" size="25" required><BR>
 				
 				 <LABEL for="rental_rate">Rental
 				cost:</LABEL><INPUT
 				type="number" id="rental_rate" placeholder="Enter Rental Cost" min=".99" max="9.99"
-				name="rentalRate" required><br>
+				name="rentalRate" size="25" required><br>
 				
 				
 			<LABEL for="length">Film Length: </LABEL> <INPUT type="number" min="1" max="99999"
-				id="length" placeholder="Enter Length" name="length" required><BR>
+				id="length" placeholder="Enter Length" name="length" size="25" required><BR>
 				
 				
 			<LABEL for="replacement_cost">Cost to replace: </LABEL> <INPUT
 				type="number" min=".99" max="99.99" id="replacement_cost"
-				placeholder="Enter Replacement Cost" name="replacementCost" required><BR>
+				placeholder="Enter Replacement Cost" name="replacementCost" size="50" required><BR>
 				
 			
 				
