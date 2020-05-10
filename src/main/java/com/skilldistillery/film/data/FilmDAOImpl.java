@@ -300,12 +300,9 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			conn.setAutoCommit(false);
 
-			String sql = "UPDATE film SET film.title=?, film.description=?, film.release_year=?, film.language_id=?,"
-					+ " film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?, film.rating=?, film.special_features=?"
-					+ "WHERE film.id=?";
-//			String sql = "UPDATE film SET film.title, film.description, film.release_year, film.language_id, "
-//					+ "film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features"
-//					+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?,"
+					+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?"
+					+ "WHERE id=?";
 
 			PreparedStatement st = conn.prepareStatement(sql);
 		//	st.setInt(1, film.getId());

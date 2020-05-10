@@ -48,35 +48,36 @@ Special Features -	${film.specialFeatures }<br>
 
 
 		
-			<LABEL for="id">Film ID - ${film.id } </LABEL> <BR>
+			<LABEL for="id">Film ID -  </LABEL><INPUT type="text"
+				id="title" value="${film.id }" name="id" readonly> <BR>
 			
 			 <LABEL
 				for="title">Title -  </LABEL> <INPUT type="text"
-				id="title" placeholder="${film.title }" name="title"><BR>
+				id="title" value="${film.title }" name="title"><BR>
 				
 				 <LABEL for="description">Description - 
-				${film.description } </LABEL> <INPUT type="text" id="description" placeholder="${film.description }" name="description"><BR>
+				 </LABEL> <INPUT type="text" id="description" value="${film.description }" name="description"><BR>
 				
 				
 			<LABEL for="releaseYear">Release year -  </LABEL> <INPUT
-				type="text" id="releaseYear" placeholder="${film.releaseYear }" name="releaseYear"><BR> 
+				type="text" id="releaseYear" value="${film.releaseYear }" name="releaseYear"><BR> 
 				
 			
 				
 				 <LABEL
 				for="rentalDuration">Rental duration -  day
-			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="${film.rentalDuration }" name="rentalDuration"><BR> 
+			</LABEL> <INPUT type="text" id="rentalDuration" value="${film.rentalDuration }" name="rentalDuration"><BR> 
 			
 			<LABEL
 				for="rentalRate">Rental cost -  </LABEL> <INPUT
-				type="text" id="rentalRate" placeholder="${film.rentalRate }" name="replacementCost"><BR> 
+				type="text" id="rentalRate" value="${film.rentalRate }" name="replacementCost"><BR> 
 				
 				<LABEL for="length">Film
-				Length -  minutes</LABEL> <INPUT type="text" id="length" placeholder="${film.length }" name="length"><BR>
+				Length -  minutes</LABEL> <INPUT type="text" id="length" value="${film.length }" name="length"><BR>
 				
 				
 			<LABEL for="replacementCost">Cost to replace -
-				 </LABEL> <INPUT type="text" id="replacementCost" placeholder="${film.replacementCost }" name="replacementCost"><BR>
+				 </LABEL> <INPUT type="text" id="replacementCost" value="${film.replacementCost }" name="replacementCost"><BR>
 				
 				
 	
