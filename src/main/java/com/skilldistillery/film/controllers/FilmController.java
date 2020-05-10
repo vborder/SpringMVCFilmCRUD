@@ -127,23 +127,23 @@ public class FilmController {
 //		
 //		return mav;
 //	}
-	
-//	@RequestMapping(path="updateFilm.do", method= RequestMethod.POST)
-//	public ModelAndView updateFilm(Film film)
-//
-//	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
-//	public ModelAndView deleteFilm(@RequestParam("id") int filmId) throws SQLException {
-//		ModelAndView mav = new ModelAndView();
-//		Film film = dao.findCreatedFilmsByID(filmId);
-//		boolean deleted = dao.deleteFilm(film);
-//		if (deleted) {
-//			mav.addObject("deleted", deleted);
-//			mav.setViewName("result.jsp");
-//		}
-//		else {
-//			mav.setViewName("deleteFailed.jsp");
-//		}
-//		return mav;
-//	}
+
+
+
+	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
+	public ModelAndView deleteFilm(@RequestParam("id") int filmId) throws SQLException {
+		ModelAndView mav = new ModelAndView();
+		Film film = dao.findCreatedFilmsByID(filmId);
+		boolean deleted = dao.deleteFilm(film);
+		if (deleted) {
+			mav.addObject("deleted", deleted);
+			mav.setViewName("result.jsp");
+		}
+		else {
+			mav.setViewName("deleteFailed.jsp");
+		}
+		return mav;
+	}
+>>>>>>> 71094d8102ac520a5e7e2b389de536cee8da7747
 
 }
