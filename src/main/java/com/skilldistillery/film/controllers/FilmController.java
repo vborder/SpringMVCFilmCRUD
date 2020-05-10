@@ -74,12 +74,13 @@ public class FilmController {
 	
 	//Redirect and FlashAttributes for Adding a Film
 	@RequestMapping(path="addFilm.do", method= RequestMethod.POST )
-	public String createFilm(Film film, RedirectAttributes redir) throws SQLException{
+	public ModelAndView createFilm(Film film, RedirectAttributes redir) throws SQLException{
 		ModelAndView mav = new ModelAndView();
 		redir.addFlashAttribute("newFilm", film);
-//		film.setId(dao.createFilm(film));
+		film = dao.createFilm(film);
+		mav.setViewName ("redirect:filmAdded.do");
 		
-		return "redirect:filmAdded.do";
+		return mav;
 	}
 	
 	//Film added

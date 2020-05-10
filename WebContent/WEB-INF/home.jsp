@@ -24,7 +24,7 @@
 	</form>
 <br><br>
 	  <h2>  <span class="badge badge-success">Input New Film</span></h2>
-	<FORM action="addFilm.do" method="post">
+	<form action="addFilm.do" method="POST">
 		<P>
 			<LABEL for="id">Film ID: </LABEL> <INPUT type="text" id="filmId" placeholder="Enter ID"><BR>
 			<LABEL for="title">Title: </LABEL> <INPUT type="text" id="title" placeholder="Enter Title"><BR>
