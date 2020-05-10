@@ -59,24 +59,24 @@ Special Features -	${film.specialFeatures }<br>
 				 </LABEL> <INPUT type="text" id="description" value="${film.description }" name="description"><BR>
 				
 				
-			<LABEL for="releaseYear">Release year -  </LABEL> <INPUT
+			<LABEL for="release_year">Release year -  </LABEL> <INPUT
 				type="text" id="releaseYear" value="${film.releaseYear }" name="releaseYear"><BR> 
 				
 			
 				
 				 <LABEL
-				for="rentalDuration">Rental duration -  day
+				for="rental_duration">Rental duration -  day
 			</LABEL> <INPUT type="text" id="rentalDuration" value="${film.rentalDuration }" name="rentalDuration"><BR> 
 			
 			<LABEL
-				for="rentalRate">Rental cost -  </LABEL> <INPUT
-				type="text" id="rentalRate" value="${film.rentalRate }" name="replacementCost"><BR> 
+				for="rental_rate">Rental cost -  </LABEL> <INPUT
+				type="text" id="rentalRate" value="${film.rentalRate }" name="rentalRate"><BR> 
 				
 				<LABEL for="length">Film
 				Length -  minutes</LABEL> <INPUT type="text" id="length" value="${film.length }" name="length"><BR>
 				
 				
-			<LABEL for="replacementCost">Cost to replace -
+			<LABEL for="replacement_cost">Cost to replace -
 				 </LABEL> <INPUT type="text" id="replacementCost" value="${film.replacementCost }" name="replacementCost"><BR>
 				
 				
