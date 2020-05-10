@@ -108,7 +108,7 @@ public class Film {
 		this.rentalDuration = rentalDuration;
 	}
 
-	public Double getRentalRate() {
+	public double getRentalRate() {
 		return rentalRate;
 	}
 
