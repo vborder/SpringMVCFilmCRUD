@@ -12,7 +12,7 @@
 <body style="background-color:#b3e0ff">
  <a href="http://localhost:8080/MVCFilmSite/" > Click here to go back home </a >
  <br><br>
-	 <h2>  <span class="badge badge-success">Film Details</span></h2>
+	 <h2>  <span class="badge badge-success">Matching Films</span></h2>
 
  <c:forEach var="film" items="${filmList }">
 	Film id - ${film.id } <br>
@@ -23,7 +23,7 @@
 	  
 	  
 </c:forEach>
-
+<br>
 	 <h2>  <span class="badge badge-danger">Delete Film</span></h2>
 	<LABEL for="id">Film ID: </LABEL>
 	<form action="deleteID.do" method="POST">
@@ -31,11 +31,12 @@
 			value="Delete" />
 	</form>
 <br><br>
-	 <h2>  <span class="badge badge-success">Edit Film</span></h2>
+	 <h2>  <span class="badge badge-success">Full Details</span></h2>
 	<form action="findByID.do" method="GET">
-		<input type="text" name="input" size="20" placeholder="Enter ID to Edit"/> <input type="submit"
+		<input type="text" name="input" size="20" placeholder="Enter desired ID"/> <input type="submit"
 			value="Search" />
 	</form>
-	<br><br><br>
+	<br><br>
+	 <a href="http://localhost:8080/MVCFilmSite/" > Click here to go back home </a ><br><br>
 </body>
 </html>

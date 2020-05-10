@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,13 +29,22 @@ Length -	${film.length } minutes<br>
 Replacement Cost -	 $${film.replacementCost }<br>
 Rating -	  ${film.rating }<br>
 Special Features -	${film.specialFeatures }<br>
+ <h2>  <span class="badge badge-primary">Film Actors</span></h2>
+
+<c:forEach var="actors" items="${film.actors }">
+
+${actors.firstName } ${actors.lastName}
+	<br>
+	  
+	  
+</c:forEach>
 </p>
 <br><br>
 	<h2>  <span class="badge badge-danger">Delete Film By ID</span></h2>
 	
 	<div class="text-white">
 
-	<form action="deleteID.do" method="POST">
+	<form action="deleteFilm.do" method="POST">
 		<input type="text" placeholder="Enter film ID to delete" name="ID" size="20" /> <input type="submit"
 			value="Delete" />
 	</form>
@@ -48,8 +59,8 @@ Special Features -	${film.specialFeatures }<br>
 
 
 		
-			<LABEL for="id">Film ID -  </LABEL><INPUT type="text"
-				id="title" value="${film.id }" name="id" readonly> <BR>
+			<INPUT type="hidden"
+				id="title" value="${film.id }" name="id" > <BR>
 			
 			 <LABEL
 				for="title">Title -  </LABEL> <INPUT type="text"
