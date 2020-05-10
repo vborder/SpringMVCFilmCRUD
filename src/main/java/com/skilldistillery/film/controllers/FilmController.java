@@ -85,23 +85,23 @@ public class FilmController {
 		return mav;
 	}
 	
-	@RequestMapping(path="addFilm.do", method= RequestMethod.POST		)
-	public Film createFilm(String title, String description, Integer releaseYear, int languageId,
-			int rentalDuration, double rentalRate, Integer length, double replacementCost,
-			String rating, String specialFeatures) throws SQLException{
-		Film film = new Film();
-		film.setId(1234);
-		film.setTitle(title);
-		film.setDescription(description);
-		film.setLanguageId(languageId);
-		film.setReleaseYear(releaseYear);
-		film.setRentalDuration(rentalDuration);
-		film.setSpecialFeatures(specialFeatures);
-		film.setLength(length);
-		dao.createFilm(film);
-		
-		return film;
-	}
+//	@RequestMapping(path="addFilm.do", method= RequestMethod.POST		)
+//	public Film createFilm(String title, String description, Integer releaseYear, int languageId,
+//			int rentalDuration, double rentalRate, Integer length, double replacementCost,
+//			String rating, String specialFeatures) throws SQLException{
+//		Film film = new Film();
+//		film.setId(1234);
+//		film.setTitle(title);
+//		film.setDescription(description);
+//		film.setLanguageId(languageId);
+//		film.setReleaseYear(releaseYear);
+//		film.setRentalDuration(rentalDuration);
+//		film.setSpecialFeatures(specialFeatures);
+//		film.setLength(length);
+//		dao.createFilm(film);
+//		
+//		return film;
+//	}
 	
 	
 	//Redirect and FlashAttributes for Adding a Film
