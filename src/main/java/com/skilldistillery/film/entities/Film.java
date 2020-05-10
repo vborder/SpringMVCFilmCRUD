@@ -66,8 +66,6 @@ public class Film {
 		this.rating= rating;
 	}
 	
-
-
 	public String getTitle() {
 		return title;
 	}
