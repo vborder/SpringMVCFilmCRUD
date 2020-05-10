@@ -32,39 +32,44 @@
 			placeholder="Enter Keyword" /> <input type="submit" value="Search" />
 	</form>
 <br><br>
-	  <h2>  <span class="badge badge-success">Input New Film</span></h2>
-	<form action="addFilm.do" method="POST">
-	<br>
-	<br>
-	<h2>
-		<span class="badge badge-success">Input New Film</span>
+	 
+		<h2><span class="badge badge-success">Input New Film</span>
 	</h2>
 	<FORM action="addFilm.do" method="POST">
 		<P>
 			<LABEL for="title">Title: </LABEL> <INPUT type="text" id="title"
-				placeholder="Enter Title" name="title"><BR> <LABEL
+				placeholder="Enter Title" name="title"><BR>
+				
+				 <LABEL
 				for="description">Description: </LABEL> <INPUT type="text"
 				id="description" placeholder="Enter Description" name="description"><BR>
+				
+				
 			<LABEL for="release_year">Release year: </LABEL> <INPUT type="text"
 				id="release_year" placeholder="Enter Release Year"
-				name="releaseYear"><BR> <LABEL for="language_id">Language
-				numeric ID: </LABEL> <INPUT type="text" id="language_id"
-				placeholder="Enter Language ID" name="languageId"><BR>
+				name="releaseYear"><BR>
+				
+				 
 			<LABEL for="rental_duration">Rental duration: </LABEL> <INPUT
 				type="text" id="rental_duration" placeholder="Enter Rental Duration"
-				name="rentalDuration"><BR> <LABEL for="rental_rate">Rental
-				cost: </LABEL> <INPUT type="text" id="rental_rate"
-				placeholder="Enter Rental Rate" name="rentalRate"><BR>
+				name="rentalDuration"><BR>
+				
+				 <LABEL for="rental_rate">Rental
+				cost:</LABEL><INPUT
+				type="text" id="rental_rate" placeholder="Enter Rental Duration"
+				name="rentalCost"><br>
+				
+				
 			<LABEL for="length">Film Length: </LABEL> <INPUT type="text"
 				id="length" placeholder="Enter Length" name="length"><BR>
+				
+				
 			<LABEL for="replacement_cost">Cost to replace: </LABEL> <INPUT
 				type="text" id="replacement_cost"
 				placeholder="Enter Replacement Cost" name="replacementCost"><BR>
-			<LABEL for="rating">Movie rating: </LABEL> <INPUT type="text"
-				id="rating" placeholder="Enter Rating" name="rating"><BR>
-			<LABEL for="special_features">Special features: </LABEL> <INPUT
-				type="text" id="special_features"
-				placeholder="Enter Special Features" name="specialfeatures"><BR>
+				
+			
+				
 			<INPUT type="submit" value="Send"> <INPUT type="reset">
 		</P>
 	</FORM>
