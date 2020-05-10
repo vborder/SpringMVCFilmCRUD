@@ -19,7 +19,7 @@
 		<span class="badge badge-success">Find Film By ID</span>
 	</h2>
 	<form action="findByID.do" method="GET">
-		<input type="text" name="input" size="20" placeholder="Enter ID" /> <input
+		<input type="number" name="input" size="20" placeholder="Enter ID" required/> <input
 			type="submit" value="Search" />
 	</form>
 	<br>
@@ -29,7 +29,7 @@
 	</h2>
 	<form action="findByKeyword.do" method="GET">
 		<input type="text" name="keyword" size="20"
-			placeholder="Enter Keyword" /> <input type="submit" value="Search" />
+			placeholder="Enter Keyword" required /> <input type="submit" value="Search" />
 	</form>
 <br><br>
 	 
@@ -38,35 +38,35 @@
 	<FORM action="addFilm.do" method="POST">
 		<P>
 			<LABEL for="title">Title: </LABEL> <INPUT type="text" id="title"
-				placeholder="Enter Title" name="title"><BR>
+				placeholder="Enter Title" name="title" maxlength="10" required><BR>
 				
 				 <LABEL
 				for="description">Description: </LABEL> <INPUT type="text"
-				id="description" placeholder="Enter Description" name="description"><BR>
+				id="description" placeholder="Enter Description" name="description" maxlength="255" required><BR>
 				
 				
-			<LABEL for="release_year">Release year: </LABEL> <INPUT type="text"
+			<LABEL for="release_year">Release year: </LABEL> <INPUT type="number" min="1995" max="2020"
 				id="release_year" placeholder="Enter Release Year"
-				name="releaseYear"><BR>
+				name="releaseYear" required><BR>
 				
 				 
 			<LABEL for="rental_duration">Rental duration: </LABEL> <INPUT
-				type="text" id="rental_duration" placeholder="Enter Rental Duration"
-				name="rentalDuration"><BR>
+				type="number" id="rental_duration" min="1" max="999" placeholder="Enter Rental Duration"
+				name="rentalDuration" required><BR>
 				
 				 <LABEL for="rental_rate">Rental
 				cost:</LABEL><INPUT
-				type="text" id="rental_rate" placeholder="Enter Rental Cost"
-				name="rentalRate"><br>
+				type="number" id="rental_rate" placeholder="Enter Rental Cost" min=".99" max="9.99"
+				name="rentalRate" required><br>
 				
 				
-			<LABEL for="length">Film Length: </LABEL> <INPUT type="text"
-				id="length" placeholder="Enter Length" name="length"><BR>
+			<LABEL for="length">Film Length: </LABEL> <INPUT type="number" min="1" max="99999"
+				id="length" placeholder="Enter Length" name="length" required><BR>
 				
 				
 			<LABEL for="replacement_cost">Cost to replace: </LABEL> <INPUT
-				type="text" id="replacement_cost"
-				placeholder="Enter Replacement Cost" name="replacementCost"><BR>
+				type="number" min=".99" max="99.99" id="replacement_cost"
+				placeholder="Enter Replacement Cost" name="replacementCost" required><BR>
 				
 			
 				

@@ -61,7 +61,7 @@ public class FilmController {
 		List<Film> films = new ArrayList<>();
 
 		films.addAll(dao.findFilmsByKeyword(keyword));
-		films.addAll(dao.findCreatedFilmsByKeyword(keyword));
+	//	films.addAll(dao.findCreatedFilmsByKeyword(keyword));
 		if (films.size() > 0) {
 			mav.addObject("filmList", films);
 			mav.setViewName("WEB-INF/keywordResult.jsp");
