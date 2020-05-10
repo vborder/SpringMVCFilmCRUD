@@ -33,9 +33,39 @@ public class Film {
 
 	}
 
+	/*
+	 * This was previously empty. While the parameters were being used, they were never set to the objects fields.
+	 */
 	public Film(int filmId, String title2, String desc, int releaseYear2, int langId, int rentDur, double rate,
 			int length2, double repCost, String rating2, String features) {
+		this.id= filmId;
+		this.title= title2;
+		this.description= desc;
+		this.releaseYear= releaseYear2;
+		this.languageId= langId;
+		this.rentalDuration= rentDur;
+		this.rentalRate= rate;
+		this.length= length2;
+		this.replacementCost= repCost;
+		this.rating= rating2;
+		this.specialFeatures= features;
 	}
+	
+	/*
+	 * Overloading a Film constructor to create a Film without an ID... yet Our hardcoded setId() needs to be used or the id will be null/0;
+	 * minimum constructor.
+	 */
+	public Film(String title, String description, int releaseYear, int languageID, int length, String rating) {
+		super();
+		this.title=title;
+		this.description= description;
+		this.releaseYear= releaseYear;
+		this.languageId= languageID;
+		this.length= length;
+		this.rating= rating;
+	}
+	
+	
 
 	public void setId(int id) {
 		this.id = id;

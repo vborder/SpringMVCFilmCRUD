@@ -245,24 +245,29 @@ public class FilmDAOImpl implements FilmDAO {
 
 	@Override
 	public Film createFilm(Film film) throws SQLException {
+		//creating a copy of the film 
+		Film thisFilm= film;
 		Connection conn = DriverManager.getConnection(url, user, pass);
 		try {
 			conn.setAutoCommit(false);
-			String sql = "INSERT INTO film (id, title, description, release_year, language_id,"
+			String sql = "INSERT INTO film (title, description, release_year, language_id,"
 					+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			st.setInt(1, film.getId());
-			st.setString(2, film.getTitle());
-			st.setString(3, film.getDescription());
-			st.setInt(4, film.getReleaseYear());
-			st.setInt(5, film.getLanguageId());
-			st.setInt(6, film.getRentalDuration());
-			st.setDouble(7, film.getRentalRate());
-			st.setInt(8, film.getLength());
-			st.setDouble(9, film.getReplacementCost());
-			st.setString(10, film.getRating());
-			st.setString(11, film.getSpecialFeatures());
+			
+			//st.setInt(1, film.getId()); set below directly under if(keys.next()) instead of this insert statement to use
+			//keys.getInt()
+			st.setString(1, thisFilm.getTitle());
+			st.setString(2, thisFilm.getDescription());
+			st.setInt(3, thisFilm.getReleaseYear());
+			st.setInt(4, thisFilm.getLanguageId());
+			st.setInt(5, thisFilm.getRentalDuration());
+			st.setDouble(6, thisFilm.getRentalRate());
+			st.setInt(7, thisFilm.getLength());
+			st.setDouble(8, thisFilm.getReplacementCost());
+			st.setString(9, thisFilm.getRating());
+			st.setString(10, thisFilm.getSpecialFeatures());
+			
 			int updateCount = st.executeUpdate();
 
 			if (updateCount == 1) {
@@ -270,16 +275,23 @@ public class FilmDAOImpl implements FilmDAO {
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setId(newFilmId);
-					sql = "INSERT INTO film (id, title, description, release_year, language_id,"
-							+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
-							+ "VALUES (?, ?)";
-					st = conn.prepareStatement(sql);
+					//no need to do another insert for the same
+//					sql = "INSERT INTO film (id, title, description, release_year, language_id,"
+//							+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
+//							+ "VALUES (?, ?)";
+//					st = conn.prepareStatement(sql);
 
-				} else {
-					film = null;
 				}
-				conn.commit();
+				keys.close();//close in scope
+				//Don't need this else
+				//else {
+				//	film = null; 
+				//}
 			}
+			conn.commit();
+			
+			st.close();
+			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -290,7 +302,10 @@ public class FilmDAOImpl implements FilmDAO {
 				}
 			}
 			//throw new RuntimeException("Error inserting film " + film);
+		} finally {
+			conn.close();
 		}
+		
 
 		return film;
 	}
