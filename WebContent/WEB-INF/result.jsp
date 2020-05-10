@@ -29,6 +29,7 @@ Length -	${film.length } minutes<br>
 Replacement Cost -	 $${film.replacementCost }<br>
 Rating -	  ${film.rating }<br>
 Special Features -	${film.specialFeatures }<br>
+Film Category - ${film.category }<br>
  <h2>  <span class="badge badge-primary">Film Actors</span></h2>
 
 <c:forEach var="actors" items="${film.actors }">
