@@ -132,17 +132,21 @@ public class FilmController {
 
 
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm(@RequestParam("id") int filmId) throws SQLException {
+	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) throws SQLException {
 		ModelAndView mav = new ModelAndView();
+		try {
 		Film film = dao.findCreatedFilmsByID(filmId);
 		boolean deleted = dao.deleteFilm(film);
 		if (deleted) {
-			mav.addObject("deleted", deleted);
-			mav.setViewName("result.jsp");
+			mav.addObject("delete", deleted);
+			mav.setViewName("WEB-INF/result.jsp");
 		}
-		else {
-			mav.setViewName("deleteFailed.jsp");
 		}
+		catch (Exception e) {
+		
+			mav.setViewName("WEB-INF/deleteFailed.jsp");
+		}
+		
 		return mav;
 	}
 

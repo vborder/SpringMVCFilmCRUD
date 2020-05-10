@@ -45,7 +45,7 @@ ${actors.firstName } ${actors.lastName}
 	<div class="text-white">
 
 	<form action="deleteFilm.do" method="POST">
-		<input type="text" placeholder="Enter film ID to delete" name="ID" size="20" /> <input type="submit"
+		<input type="text" placeholder="Enter film ID to delete" name="filmId" size="20" /> <input type="submit"
 			value="Delete" />
 	</form>
 	</div>
