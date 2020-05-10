@@ -66,7 +66,6 @@ public class FilmDAOImpl implements FilmDAO {
 			}
 			conn.close();
 		} catch (SQLException e) {
-			System.out.println("test");
 			e.printStackTrace();
 		}
 
@@ -246,12 +245,18 @@ public class FilmDAOImpl implements FilmDAO {
 
 	@Override
 	public Film createFilm(Film film) throws SQLException {
+<<<<<<< HEAD
 		String user = "student";
 		String pass = "student";
 		
+=======
+		//creating a copy of the film 
+		Film thisFilm= film;
+>>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 		Connection conn = DriverManager.getConnection(url, user, pass);
 //		try {
 			conn.setAutoCommit(false);
+<<<<<<< HEAD
 			String sql = "INSERT INTO film (film.title, film.description, film.release_year, film.language_id,"
 					+ " film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.rating, film.special_features"
 					+ "VALUES(?, ?, ?, 1, ?, ?, ?, ?, ?, ?)";
@@ -267,6 +272,26 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setDouble(7, film.getReplacementCost());
 			st.setString(8, film.getRating());
 			st.setString(9, film.getSpecialFeatures());
+=======
+			String sql = "INSERT INTO film (title, description, release_year, language_id,"
+					+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			//st.setInt(1, film.getId()); set below directly under if(keys.next()) instead of this insert statement to use
+			//keys.getInt()
+			st.setString(1, thisFilm.getTitle());
+			st.setString(2, thisFilm.getDescription());
+			st.setInt(3, thisFilm.getReleaseYear());
+			st.setInt(4, thisFilm.getLanguageId());
+			st.setInt(5, thisFilm.getRentalDuration());
+			st.setDouble(6, thisFilm.getRentalRate());
+			st.setInt(7, thisFilm.getLength());
+			st.setDouble(8, thisFilm.getReplacementCost());
+			st.setString(9, thisFilm.getRating());
+			st.setString(10, thisFilm.getSpecialFeatures());
+			
+>>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 			int updateCount = st.executeUpdate();
 
 			if (updateCount == 1) {
@@ -274,16 +299,29 @@ public class FilmDAOImpl implements FilmDAO {
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setId(newFilmId);
+<<<<<<< HEAD
 //					sql = "INSERT INTO film (film.id, film.title, description, release_year, language_id,"
+=======
+					//no need to do another insert for the same
+//					sql = "INSERT INTO film (id, title, description, release_year, language_id,"
+>>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 //							+ " rental_duration, rental_rate, length, replacement_cost, rating, special_features"
 //							+ "VALUES (?, ?)";
 //					st = conn.prepareStatement(sql);
 
+<<<<<<< HEAD
 //				} else {
 //					film = null;
+=======
+>>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 				}
-				conn.commit();
+				keys.close();//close in scope
+				//Don't need this else
+				//else {
+				//	film = null; 
+				//}
 			}
+<<<<<<< HEAD
 //		} catch (SQLException sqle) {
 //			sqle.printStackTrace();
 //			if (conn != null) {
@@ -296,6 +334,27 @@ public class FilmDAOImpl implements FilmDAO {
 //			throw new RuntimeException("Error inserting film " + film);
 //		}
 			
+=======
+			conn.commit();
+			
+			st.close();
+			conn.close();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			//throw new RuntimeException("Error inserting film " + film);
+		} finally {
+			conn.close();
+		}
+		
+
+>>>>>>> c1db9340490b6606ed4f5b168659aa286744b5e1
 		return film;
 	}
 
