@@ -16,6 +16,7 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> actors;
 	private String language;
+	private String category;
 
 	public String getLanguage() {
 		return language;
@@ -158,6 +159,14 @@ public class Film {
 		this.id = id;
 	}
 
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+
 	@Override
 	public String toString() {
 		String r = "Film id: " + id + "\n" + "Title: " + title + "\n" + "Description: " + description + "\n"
@@ -169,4 +178,5 @@ public class Film {
 
 		return r;
 	}
+
 }
