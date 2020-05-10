@@ -2,9 +2,9 @@
 
 ## Team AwesomeSauce:
 
-Vince Borden, Back-End and Boss
-Jacob Zieleniewski, Front-End and Debugger of the Year
-Mike Matosky, Middle-End and Gorgeous README creator
+* Vince Borden, Back-End and Boss
+* Jacob Zieleniewski, Front-End and Debugger of the Year
+* Mike Matosky, Middle-End and Gorgeous README creator
 
 ## About SpringMVCFilmCRUD
 As the name suggests, this is a SpringMVC adaptation of a previous FilmQuery
