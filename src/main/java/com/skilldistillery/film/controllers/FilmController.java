@@ -42,9 +42,11 @@ public class FilmController {
 		else {
 			film= dao.findCreatedFilmsByID(filmID);
 		}
+		if (film!=null) {
 		mav.addObject("film", film);
 		mav.setViewName("WEB-INF/result.jsp");
-		
+		}
+		else mav.setViewName("WEB-INF/resultNotFound.jsp");
 		}
 		catch (Exception e) {
 			mav.setViewName("WEB-INF/resultNotFound.jsp");
