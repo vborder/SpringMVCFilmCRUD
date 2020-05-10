@@ -94,6 +94,7 @@ ${actors.firstName } ${actors.lastName}
 				 <input type="hidden" id="id" name="languageId" value="${film.languageId}">
 				 <input type="hidden" id="id" name="rating" value="${film.rating}">
 				 <input type="hidden" id="id" name="specialFeatures" value="${film.specialFeatures}">
+				 <input type="hidden" id="id" name="category" value="${film.category}">
 				
 				
 	
