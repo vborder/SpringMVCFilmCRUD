@@ -46,8 +46,8 @@ public class FilmDAOImpl implements FilmDAO {
 		String sql = "SELECT film.*, language.name, category.name "
 				+ "FROM film JOIN language ON film.language_id = language.id "
 				+ "JOIN film_category ON film.id = film_category.film_id "
-				+ "JOIN category ON film_category.category_id = category.id"
-				+ "WHERE film.id = ? ";
+				+ "JOIN category ON film_category.category_id = category.id "
+				+ "WHERE film.id = ?";
 
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
@@ -70,7 +70,6 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setSpecialFeatures(rs.getString("special_features"));
 				film.setActors(findActorsByFilmID(filmID));
 				film.setCategory(rs.getString("category_name"));
-
 			}
 			conn.close();
 		} catch (SQLException e) {
