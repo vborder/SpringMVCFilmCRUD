@@ -260,7 +260,7 @@ public class FilmDAOImpl implements FilmDAO {
 		st.setString(9, "G");
 		st.setString(10, film.getSpecialFeatures());
 
-		System.out.println(st);
+//		System.out.println(st);
 		int updateCount = st.executeUpdate();
 
 		if (updateCount == 1) {
@@ -286,13 +286,17 @@ public class FilmDAOImpl implements FilmDAO {
 		}
 		// throw new RuntimeException("Error inserting film " + film);
 	}
-	return film;
+	return thisFilm;
 	
 	}
 
 	@Override
 	public boolean updateFilm(Film film) throws SQLException {
+		String user = "student";
+		String pass = "student";
+		
 		Connection conn = DriverManager.getConnection(url, user, pass);
+		
 		try {
 			conn.setAutoCommit(false);
 
@@ -305,20 +309,22 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setString(1, film.getTitle());
 			st.setString(2, film.getDescription());
 			st.setInt(3, film.getReleaseYear());
-			st.setInt(4, film.getRentalDuration());
-			st.setDouble(5, film.getRentalRate());
-			st.setInt(6, film.getLength());
-			st.setDouble(7, film.getReplacementCost());
 
-		//	st.setString(8, film.getRating());
-		//	st.setString(9, film.getSpecialFeatures());
+			st.setInt(4, film.getLanguageId());
+			st.setInt(5, film.getRentalDuration());
+			st.setDouble(6, film.getRentalRate());
+			st.setInt(7, film.getLength());
+			st.setDouble(8, film.getReplacementCost());
+
 		//	st.setString(10, film.getRating());
 		//	st.setString(11, film.getSpecialFeatures());
 			int updateCount = st.executeUpdate();
 			if (updateCount == 1) {
+
 				st = conn.prepareStatement(sql);
+//				System.out.println("The film update was successful");
+				conn.commit();
 			}
-			conn.commit();
 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -334,7 +340,7 @@ public class FilmDAOImpl implements FilmDAO {
 			return false;
 
 		}
-		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was updated.");
+//		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was updated.");
 		return true;
 	}
 
