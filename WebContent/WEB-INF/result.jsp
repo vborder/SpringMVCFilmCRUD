@@ -48,25 +48,42 @@ Special Features -	${film.specialFeatures }<br>
 
 
 		
-			<LABEL for="id">Film ID - ${film.id } </LABEL> <BR> <LABEL
+			<LABEL for="id">Film ID - ${film.id } </LABEL> <BR>
+			
+			 <LABEL
 				for="title">Title - ${film.title } </LABEL> <INPUT type="text"
-				id="title" placeholder="Enter new title"><BR> <LABEL for="description">Description - 
+				id="title" placeholder="Enter new title"><BR>
+				
+				 <LABEL for="description">Description - 
 				${film.description } </LABEL> <INPUT type="text" id="description" placeholder="Enter new description"><BR>
+				
+				
 			<LABEL for="releaseYear">Release year - ${film.releaseYear } </LABEL> <INPUT
-				type="text" id="releaseYear" placeholder="Enter new year"><BR> <LABEL
-				for="languageId">Language numeric ID - ${film.languageId } </LABEL> <INPUT
-				type="text" id="languageId" placeholder="Enter new ID"><BR> <LABEL
+				type="text" id="releaseYear" placeholder="Enter new year"><BR> 
+				
+			
+				
+				 <LABEL
 				for="rentalDuration">Rental duration - ${film.rentalDuration } day
-			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="Enter new duration"><BR> <LABEL
+			</LABEL> <INPUT type="text" id="rentalDuration" placeholder="Enter new duration"><BR> 
+			
+			<LABEL
 				for="rentalRate">Rental cost - $${filmRental_rate } </LABEL> <INPUT
-				type="text" id="rentalRate" placeholder="Enter new cost"><BR> <LABEL for="length">Film
+				type="text" id="rentalRate" placeholder="Enter new cost"><BR> 
+				
+				<LABEL for="length">Film
 				Length - ${film.length } minutes</LABEL> <INPUT type="text" id="length" placeholder="Enter new length"><BR>
+				
+				
 			<LABEL for="replacementCost">Cost to replace -
 				$${film.replacementCost } </LABEL> <INPUT type="text" id="replacementCost" placeholder="Enter new cost"><BR>
-			<LABEL for="rating">Movie rating - ${film.rating } </LABEL> <INPUT
-				type="text" id="rating" placeholder="Enter new rating"><BR> <LABEL
-				for="specialFeatures">Special features - ${film.specialFeatures}
-			</LABEL> <INPUT type="text" id="specialFeatures" placeholder="Enter new special features"><BR> <INPUT
+				
+				
+	
+				
+			
+			
+			<INPUT
 				type="submit" value="Send"> <INPUT type="reset">
 		
 
