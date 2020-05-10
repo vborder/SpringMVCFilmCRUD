@@ -102,6 +102,7 @@ public class FilmController {
 		ModelAndView mav= new ModelAndView();
 		dao.updateFilm(film);
 		mav.addObject("film", film);
+		System.out.println(film);
 		mav.setViewName("WEB-INF/result.jsp");
 		return mav;
 		
