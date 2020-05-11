@@ -303,7 +303,6 @@ public class FilmDAOImpl implements FilmDAO {
 				System.err.println("Error trying to rollback");
 			}
 		}
-		// throw new RuntimeException("Error inserting film " + film);
 	}
 	return thisFilm;
 	
@@ -334,9 +333,6 @@ public class FilmDAOImpl implements FilmDAO {
 			st.setInt(6, film.getLength());
 			st.setDouble(7, film.getReplacementCost());
 
-		//	st.setString(10, film.getRating());
-		//	st.setString(11, film.getSpecialFeatures());
-
 			int updateCount = st.executeUpdate();
 			if (updateCount == 1) {
 
@@ -359,7 +355,6 @@ public class FilmDAOImpl implements FilmDAO {
 			return false;
 
 		}
-//		System.out.println("The film " + film.getId() + " " + film.getTitle() + "was updated.");
 		return true;
 	}
 
