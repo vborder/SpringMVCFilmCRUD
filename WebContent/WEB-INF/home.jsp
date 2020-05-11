@@ -3,10 +3,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <a href="https://github.com/vborder/SpringMVCFilmCRUD/blob/master/README.md" class="button"> Click here to learn all about this project! </a>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+	 <style>
+      .button {
+      
+        color: primary;
+        text-align: center;
+        text-decoration-style: bold;
+        display: flex; justify-content: center;
+        font-size: 30px;
+        cursor: pointer;
+        font-family:'Roboto',sans-serif;
+      }
+    </style>
 
 <meta charset="UTF-8">
 <meta name="viewport"

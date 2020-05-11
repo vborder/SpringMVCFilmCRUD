@@ -13,6 +13,7 @@
 <body style="background-color:#b3e0ff">
     <div class="w-auto p-3"  >
     <a href="http://localhost:8080/MVCFilmSite/" > Click here to go back home </a >
+
     <br><br>
   <h2>  <span class="badge badge-primary">Film Details</span></h2>
 	
